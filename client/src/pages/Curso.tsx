@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'wouter';
-import { ArrowRight, Menu, X, Send, Youtube, Instagram, Mail, CheckCircle2, Zap, Shield, TrendingUp, BookOpen, Target } from 'lucide-react';
+import { ArrowRight, Menu, X, Send, Youtube, Instagram, CheckCircle2, BookOpen, Shield, TrendingUp, Zap, Lock } from 'lucide-react';
 
 const Curso: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [email, setEmail] = useState('');
-  const [subscribed, setSubscribed] = useState(false);
+  const [formData, setFormData] = useState({ nome: '', telefone: '', email: '' });
+  const [submitted, setSubmitted] = useState(false);
 
   const navLinks = [
     { href: "/mentoria", label: "MENTORIA" },
@@ -18,12 +18,17 @@ const Curso: React.FC = () => {
     { href: "/imposto-de-renda", label: "IMPOSTO DE RENDA" },
   ];
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
-      setSubscribed(true);
-      setEmail('');
-      setTimeout(() => setSubscribed(false), 3000);
+    if (formData.nome && formData.telefone && formData.email) {
+      setSubmitted(true);
+      setFormData({ nome: '', telefone: '', email: '' });
+      setTimeout(() => setSubmitted(false), 4000);
     }
   };
 
@@ -77,59 +82,127 @@ const Curso: React.FC = () => {
         )}
       </header>
 
-      {/* Hero Section */}
-      <section className="relative py-24 md:py-32 px-6 md:px-12 bg-[#0a0a0a] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent pointer-events-none"></div>
+      {/* Hero Section Premium */}
+      <section className="relative py-32 md:py-40 px-6 md:px-12 bg-gradient-to-b from-[#0a0a0a] to-[#0f0f1a] overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
+        </div>
         
-        <div className="max-w-7xl mx-auto w-full relative z-10">
-          <div className="max-w-3xl">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.2] mb-8 tracking-tight">
-              Aprenda Cripto <span className="text-blue-400">do Zero</span>
+        <div className="max-w-5xl mx-auto relative z-10">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/30 rounded-full mb-6">
+              <Zap size={16} className="text-blue-400" />
+              <span className="text-sm font-semibold text-blue-400">Educação em Criptomoedas</span>
+            </div>
+            
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6 tracking-tight">
+              Aprenda Cripto <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">do Zero</span>
             </h1>
             
-            <p className="text-base md:text-lg text-gray-400 max-w-2xl mb-12 leading-relaxed">
-              Conteúdo educativo gratuito para você começar sua jornada no mercado de criptomoedas com segurança, método e pé no chão.
+            <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+              Conteúdo educativo estruturado e gratuito para você começar sua jornada no mercado de criptomoedas com segurança, método e pé no chão.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Lista de Espera Section */}
-      <section className="py-20 md:py-28 px-6 md:px-12 bg-gradient-to-b from-[#0a0a0a] to-[#1a1a1a] border-t border-gray-900">
-        <div className="max-w-3xl mx-auto">
-          <div className="bg-gradient-to-r from-blue-900/30 to-blue-900/10 border border-blue-500/30 rounded-2xl p-8 md:p-12">
-            <div className="flex items-start gap-4 mb-6">
-              <Mail className="text-blue-400 flex-shrink-0 mt-1" size={28} />
-              <div>
-                <h2 className="text-3xl font-bold mb-3">Curso Oficial em Breve</h2>
-                <p className="text-gray-400 text-lg">
-                  Estamos preparando um treinamento completo e estruturado. Deixe seu e-mail para receber os guias gratuitos e ser avisado quando o curso lançar com condições especiais para os primeiros inscritos.
-                </p>
+      {/* Lista de Espera Premium Section */}
+      <section className="relative py-20 md:py-32 px-6 md:px-12 bg-[#0a0a0a] border-t border-gray-800">
+        <div className="max-w-4xl mx-auto">
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-blue-600/5 rounded-2xl blur-2xl"></div>
+            
+            <div className="relative bg-gradient-to-br from-gray-900/80 to-gray-900/40 border border-blue-500/30 rounded-2xl p-8 md:p-12 backdrop-blur">
+              <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+                {/* Left Side - Content */}
+                <div>
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center">
+                      <Lock className="text-blue-400" size={24} />
+                    </div>
+                    <h2 className="text-2xl md:text-3xl font-bold">Acesso VIP Antecipado</h2>
+                  </div>
+                  
+                  <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-6">
+                    O curso oficial está sendo preparado com muito cuidado. Deixe seus dados para:
+                  </p>
+                  
+                  <ul className="space-y-3">
+                    {[
+                      'Receber guias gratuitos exclusivos',
+                      'Ser notificado quando o curso lançar',
+                      'Acesso especial para primeiros inscritos',
+                      'Comunidade VIP no Telegram'
+                    ].map((item, idx) => (
+                      <li key={idx} className="flex items-center gap-3 text-gray-300">
+                        <CheckCircle2 size={18} className="text-blue-400 flex-shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Right Side - Form */}
+                <div>
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-300 mb-2">Nome Completo</label>
+                      <input
+                        type="text"
+                        name="nome"
+                        placeholder="Seu nome"
+                        value={formData.nome}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:bg-gray-800 transition-all"
+                        required
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-300 mb-2">WhatsApp</label>
+                      <input
+                        type="tel"
+                        name="telefone"
+                        placeholder="(11) 99999-9999"
+                        value={formData.telefone}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:bg-gray-800 transition-all"
+                        required
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-300 mb-2">E-mail</label>
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder="seu@email.com"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:bg-gray-800 transition-all"
+                        required
+                      />
+                    </div>
+
+                    <button
+                      type="submit"
+                      className="w-full py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold rounded-lg transition-all duration-300 shadow-lg hover:shadow-blue-600/50 flex items-center justify-center gap-2"
+                    >
+                      Garantir Acesso VIP
+                      <ArrowRight size={18} />
+                    </button>
+
+                    {submitted && (
+                      <div className="p-3 bg-green-500/10 border border-green-500/30 rounded-lg flex items-center gap-2 text-green-400 text-sm">
+                        <CheckCircle2 size={18} />
+                        Cadastro realizado com sucesso! Confira seu e-mail.
+                      </div>
+                    )}
+                  </form>
+                </div>
               </div>
             </div>
-
-            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3">
-              <input
-                type="email"
-                placeholder="seu@email.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
-                required
-              />
-              <button
-                type="submit"
-                className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors whitespace-nowrap"
-              >
-                Inscrever
-              </button>
-            </form>
-
-            {subscribed && (
-              <p className="text-green-400 text-sm mt-4 flex items-center gap-2">
-                <CheckCircle2 size={16} /> E-mail registrado com sucesso!
-              </p>
-            )}
           </div>
         </div>
       </section>
@@ -151,27 +224,30 @@ const Curso: React.FC = () => {
               {
                 icon: BookOpen,
                 title: "O Mindset do Investidor",
-                desc: "Entenda a diferença entre apostar e investir. Aprenda por que paciência, disciplina e controle emocional são suas maiores armas no mercado cripto."
+                desc: "Entenda a diferença entre apostar e investir. Aprenda por que paciência, disciplina e controle emocional são suas maiores armas."
               },
               {
                 icon: Shield,
                 title: "Segurança Prática",
-                desc: "O checklist essencial: 2FA, senhas fortes, seed phrases e por que você NUNCA deve deixar tudo na exchange. Segurança não é opcional."
+                desc: "O checklist essencial: 2FA, senhas fortes, seed phrases. Segurança em cripto não é opcional, é obrigatório."
               },
               {
                 icon: TrendingUp,
                 title: "Sua Primeira Compra",
-                desc: "Guia visual passo a passo: como transformar Reais em Cripto usando as exchanges que recomendamos. Rápido, seguro e sem surpresas."
+                desc: "Guia visual passo a passo: como transformar Reais em Cripto usando as exchanges que recomendamos."
               }
             ].map((item, idx) => {
               const IconComponent = item.icon;
               return (
-                <div key={idx} className="group p-8 rounded-xl border border-gray-800 hover:border-blue-500/50 transition-all hover:bg-gray-900/50">
-                  <div className="mb-6 inline-flex p-3 bg-blue-500/10 rounded-lg group-hover:bg-blue-500/20 transition-colors">
-                    <IconComponent className="text-blue-500" size={32} />
+                <div key={idx} className="group relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-blue-600/5 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="relative p-8 rounded-xl border border-gray-800 hover:border-blue-500/50 transition-all hover:bg-gray-900/30">
+                    <div className="mb-6 inline-flex p-3 bg-blue-500/10 rounded-lg group-hover:bg-blue-500/20 transition-colors">
+                      <IconComponent className="text-blue-400" size={32} />
+                    </div>
+                    <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                    <p className="text-gray-400 leading-relaxed">{item.desc}</p>
                   </div>
-                  <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                  <p className="text-gray-400 leading-relaxed">{item.desc}</p>
                 </div>
               );
             })}
@@ -180,50 +256,52 @@ const Curso: React.FC = () => {
       </section>
 
       {/* Regras de Ouro */}
-      <section className="py-20 md:py-28 px-6 md:px-12 bg-gradient-to-b from-[#0a0a0a] to-[#1a1a1a] border-t border-gray-900">
+      <section className="py-20 md:py-28 px-6 md:px-12 bg-gradient-to-b from-[#0a0a0a] to-[#0f0f1a] border-t border-gray-800">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
-              As 5 Regras de Ouro do Matuto
+              As 5 Regras de Ouro
             </h2>
             <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-              Princípios baseados em 6 anos de experiência e aprendizado no mercado cripto
+              Princípios baseados em 6 anos de experiência e aprendizado
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
             {[
               {
-                num: "1",
+                num: "01",
                 title: "Nunca invista o dinheiro do aluguel",
-                desc: "Só coloque em cripto o dinheiro que você pode perder sem afetar sua vida. Cripto é volatilidade, não é poupança."
+                desc: "Só coloque em cripto o dinheiro que você pode perder sem afetar sua vida."
               },
               {
-                num: "2",
+                num: "02",
                 title: "Entenda o que você está comprando",
-                desc: "Não compre apenas porque 'todo mundo está ganhando'. Leia o whitepaper, entenda o projeto, saiba por que existe."
+                desc: "Não compre apenas porque 'todo mundo está ganhando'. Entenda o projeto."
               },
               {
-                num: "3",
-                title: "Gestão de risco: O stop-loss é seu melhor amigo",
-                desc: "Defina antes de entrar: até quanto você está disposto a perder? Respeite esse limite. Emoção é inimiga do trader."
+                num: "03",
+                title: "Gestão de risco: O stop-loss é seu amigo",
+                desc: "Defina antes de entrar: até quanto você está disposto a perder?"
               },
               {
-                num: "4",
+                num: "04",
                 title: "Lucro bom é lucro no bolso",
-                desc: "Não fique preso à ideia de 'vender no topo'. Realize ganhos parciais. Quem realiza lucro evolui, quem espera se arrepende."
+                desc: "Realize ganhos parciais. Quem realiza lucro evolui, quem espera se arrepende."
               },
               {
-                num: "5",
+                num: "05",
                 title: "Estude antes de clicar",
-                desc: "Cada clique é uma decisão. Estude gráficos, narrativas, fundamentos. Conhecimento reduz erros e acelera evolução."
+                desc: "Cada clique é uma decisão. Estude gráficos, narrativas e fundamentos."
               }
             ].map((regra, idx) => (
               <div key={idx} className="group bg-gray-900/30 border border-gray-800 rounded-xl p-8 hover:border-blue-500/50 transition-all hover:bg-gray-900/50">
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="text-4xl font-bold text-blue-500/30 group-hover:text-blue-500 transition-colors">{regra.num}</div>
+                  <div className="text-3xl font-bold text-blue-500/40 group-hover:text-blue-500 transition-colors">{regra.num}</div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">{regra.title}</h3>
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold mb-3 text-white group-hover:text-blue-400 transition-colors">{regra.title}</h3>
                 <p className="text-gray-400 text-sm leading-relaxed">{regra.desc}</p>
               </div>
             ))}
@@ -239,7 +317,7 @@ const Curso: React.FC = () => {
               Vídeos Essenciais
             </h2>
             <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-              Comece por esses 4 vídeos fundamentais antes de qualquer coisa
+              Comece por esses 4 vídeos fundamentais
             </p>
           </div>
 
@@ -247,19 +325,19 @@ const Curso: React.FC = () => {
             {[
               {
                 title: "Bitcoin: O Que Você Precisa Saber",
-                desc: "Entenda o que é Bitcoin, por que foi criado e por que importa. O fundamento de tudo."
+                desc: "Entenda o que é Bitcoin, por que foi criado e por que importa."
               },
               {
                 title: "Segurança em Cripto: Não Perca Seu Dinheiro",
-                desc: "Os erros mais caros do mercado cripto. Como evitar golpes, phishing e perder seus ativos."
+                desc: "Os erros mais caros do mercado cripto e como evitá-los."
               },
               {
                 title: "Sua Primeira Compra: Passo a Passo",
-                desc: "Como abrir conta em uma exchange, fazer verificação e comprar sua primeira fração de cripto."
+                desc: "Como abrir conta, fazer verificação e comprar sua primeira fração."
               },
               {
                 title: "Gestão de Risco: O Segredo dos Traders",
-                desc: "Por que alguns traders ganham consistentemente e outros perdem tudo. A resposta está aqui."
+                desc: "Por que alguns ganham consistentemente e outros perdem tudo."
               }
             ].map((video, idx) => (
               <div key={idx} className="group bg-gray-900/30 border border-gray-800 rounded-xl p-8 hover:border-blue-500/50 transition-all hover:bg-gray-900/50">
@@ -283,7 +361,7 @@ const Curso: React.FC = () => {
       </section>
 
       {/* CTA Final */}
-      <section className="py-20 md:py-28 px-6 md:px-12 bg-gradient-to-b from-[#0a0a0a] to-[#1a1a1a] border-t border-gray-900">
+      <section className="py-20 md:py-28 px-6 md:px-12 bg-gradient-to-b from-[#0a0a0a] to-[#0f0f1a] border-t border-gray-800">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">Pronto para começar?</h2>
           <p className="text-gray-400 text-lg mb-12">
@@ -295,7 +373,7 @@ const Curso: React.FC = () => {
               href="https://t.me/+vva2e0bVkoFiNWFh"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-blue-600/50"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-blue-600/50"
             >
               Entrar no Telegram
               <ArrowRight size={20} />
@@ -317,41 +395,24 @@ const Curso: React.FC = () => {
       <footer className="py-12 px-6 md:px-12 bg-[#0a0a0a] border-t border-gray-900">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center justify-center gap-4 flex-wrap">
-            {/* Copyright */}
             <p className="text-gray-500 text-sm">&copy; 2026 Investidor Matuto. Todos os direitos reservados.</p>
-            
-            {/* Separador */}
             <span className="text-gray-600">|</span>
-            
-            {/* Slogan */}
             <p className="text-gray-400 font-semibold text-sm">Quem vence? Quando você vence.</p>
-            
-            {/* Separador */}
             <span className="text-gray-600">|</span>
             
-            {/* Redes Sociais */}
             <div className="flex items-center gap-4">
-              {/* X (Twitter) */}
               <a href="https://twitter.com/invest_matuto" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" title="X">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.514l-5.106-6.67-5.829 6.67H2.422l7.723-8.835L1.254 2.25h6.554l4.882 6.467 5.633-6.467zM17.534 20.766h1.832L6.455 3.812H4.527l13.007 16.954z"/></svg>
               </a>
-              
-              {/* Telegram */}
               <a href="https://t.me/+vva2e0bVkoFiNWFh" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" title="Telegram">
                 <Send size={20} />
               </a>
-              
-              {/* Facebook */}
               <a href="https://www.facebook.com/investidormatuto" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" title="Facebook">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
               </a>
-              
-              {/* YouTube */}
               <a href="https://www.youtube.com/@investidormatuto" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" title="YouTube">
                 <Youtube size={20} />
               </a>
-              
-              {/* Instagram */}
               <a href="https://www.instagram.com/investidormatuto/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" title="Instagram">
                 <Instagram size={20} />
               </a>
