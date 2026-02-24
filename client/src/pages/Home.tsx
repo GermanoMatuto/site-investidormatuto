@@ -330,6 +330,63 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* Primeiros Passos Section */}
+      <section className="py-20 md:py-28 px-6 md:px-12 bg-gradient-to-b from-[#0a0a0a] to-[#1a1a1a] border-t border-gray-900">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
+              Comece Aqui
+            </h2>
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              Sua trilha de aprendizado para dominar criptomoedas com segurança e método
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            {[
+              {
+                step: "1",
+                title: "Entenda o Mercado",
+                desc: "Aprenda o que é Bitcoin, blockchain e por que criptomoedas importam. Conhecimento é sua melhor defesa contra erros caros.",
+                color: "from-blue-500 to-blue-600"
+              },
+              {
+                step: "2",
+                title: "Abra sua Conta",
+                desc: "Escolha uma exchange confiável e segura. Veja nossos tutoriais completos para OKX, Gate.io, BingX e outras plataformas.",
+                color: "from-purple-500 to-purple-600"
+              },
+              {
+                step: "3",
+                title: "Proteja seu Capital",
+                desc: "Segurança em cripto não é opcional. Aprenda sobre 2FA, hardware wallets e como evitar os golpes mais comuns.",
+                color: "from-green-500 to-green-600"
+              }
+            ].map((item, idx) => (
+              <div key={idx} className="relative group">
+                <div className={`absolute inset-0 bg-gradient-to-r ${item.color} rounded-2xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-300`}></div>
+                <div className="relative bg-gray-900/50 border border-gray-800 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-300">
+                  <div className={`w-14 h-14 rounded-full bg-gradient-to-r ${item.color} flex items-center justify-center text-2xl font-bold mb-6`}>
+                    {item.step}
+                  </div>
+                  <h3 className="text-xl font-bold mb-4 text-white">{item.title}</h3>
+                  <p className="text-gray-400 leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="bg-blue-900/20 border border-blue-500/30 rounded-2xl p-8 md:p-12 text-center">
+            <p className="text-gray-300 text-lg mb-6">
+              <strong className="text-white">Lembre-se:</strong> Investimento em cripto requer educação contínua, gestão de risco disciplinada e controle emocional.
+            </p>
+            <p className="text-gray-400 text-base">
+              Explore nossos guias detalhados nas páginas de cada exchange, confira nosso Imposto de Renda e junte-se à comunidade no Telegram para tirar dúvidas.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="relative py-24 px-6 md:px-12 bg-[#0a0a0a] border-t border-gray-900">
         <div className="max-w-4xl mx-auto text-center">
