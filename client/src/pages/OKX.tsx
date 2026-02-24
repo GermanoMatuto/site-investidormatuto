@@ -264,7 +264,7 @@ const OKX: React.FC = () => {
           <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-gray-800 shadow-2xl">
             <iframe 
               className="absolute inset-0 w-full h-full"
-              src="https://www.youtube.com/embed/S90-2_0v6_8" 
+              src="https://www.youtube.com/embed/hfu3uLw679I" 
               title="OKX Tutorial" 
               frameBorder="0" 
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
