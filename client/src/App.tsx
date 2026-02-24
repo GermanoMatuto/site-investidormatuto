@@ -13,6 +13,7 @@ import Telegram from "./pages/Telegram";
 import DeclareCripto from "./pages/DeclareCripto";
 import Construction from "./pages/Construction";
 import Curso from "./pages/Curso";
+import Mentoria from "./pages/Mentoria";
 import Exchanges from "./pages/Exchanges";
 import Hardwallet from "./pages/Hardwallet";
 
@@ -29,7 +30,7 @@ function Router() {
       <Route path={"/kast"} component={Kast} />
       <Route path={"/telegram"} component={Telegram} />
       <Route path={"/imposto-de-renda"} component={DeclareCripto} />
-      <Route path={"/mentoria"} component={Construction} />
+      <Route path={"/mentoria"} component={Mentoria} />
       <Route path={"/curso"} component={Curso} />
       <Route path={"/binance"} component={Construction} />
       <Route path={"/404"} component={NotFound} />
