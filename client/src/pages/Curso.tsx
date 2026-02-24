@@ -89,18 +89,18 @@ const Curso: React.FC = () => {
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
         </div>
         
-        <div className="max-w-5xl mx-auto relative z-10">
-          <div className="text-center mb-12">
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="mb-12">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/30 rounded-full mb-6">
               <Zap size={16} className="text-blue-400" />
               <span className="text-sm font-semibold text-blue-400">Educação em Criptomoedas</span>
             </div>
             
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6 tracking-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6 tracking-tight text-left">
               Aprenda Cripto <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">do Zero</span>
             </h1>
             
-            <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-400 max-w-3xl leading-relaxed">
               Conteúdo educativo estruturado e gratuito para você começar sua jornada no mercado de criptomoedas com segurança, método e pé no chão.
             </p>
           </div>
@@ -210,12 +210,12 @@ const Curso: React.FC = () => {
       {/* Trilha Cripto do Zero */}
       <section className="py-20 md:py-28 px-6 md:px-12 bg-[#0a0a0a]">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
-              Trilha: Cripto do Zero
+              As 5 Regras de Ouro
             </h2>
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-              Comece por aqui se você nunca investiu em criptomoedas
+            <p className="text-lg text-gray-400 max-w-2xl">
+              Princípios baseados em 6 anos de experiência e aprendizado
             </p>
           </div>
 
@@ -258,12 +258,12 @@ const Curso: React.FC = () => {
       {/* Regras de Ouro */}
       <section className="py-20 md:py-28 px-6 md:px-12 bg-gradient-to-b from-[#0a0a0a] to-[#0f0f1a] border-t border-gray-800">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
-              As 5 Regras de Ouro
+              Comece Aqui
             </h2>
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-              Princípios baseados em 6 anos de experiência e aprendizado
+            <p className="text-lg text-gray-400 max-w-2xl">
+              Sua trilha de aprendizado para dominar criptomoedas com segurança e método
             </p>
           </div>
 
@@ -312,11 +312,11 @@ const Curso: React.FC = () => {
       {/* Vídeos Essenciais */}
       <section className="py-20 md:py-28 px-6 md:px-12 bg-[#0a0a0a]">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
               Vídeos Essenciais
             </h2>
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-400 max-w-2xl">
               Comece por esses 4 vídeos fundamentais
             </p>
           </div>

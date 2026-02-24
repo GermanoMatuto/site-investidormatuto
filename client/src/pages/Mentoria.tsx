@@ -94,22 +94,22 @@ const Mentoria: React.FC = () => {
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
         </div>
         
-        <div className="max-w-5xl mx-auto relative z-10">
-          <div className="text-center mb-12">
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="mb-12">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/30 rounded-full mb-6">
               <Award size={16} className="text-blue-400" />
               <span className="text-sm font-semibold text-blue-400">Consultoria 1-on-1</span>
             </div>
             
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-8 tracking-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-8 tracking-tight text-left">
               Você Está com um <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Grande Problema</span>
             </h1>
             
-            <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed mb-8">
+            <p className="text-lg md:text-xl text-gray-400 max-w-3xl leading-relaxed mb-8">
               Precisa da atenção do Germano para te ajudar a solucionar? Ou quer aprender algo bem específico do mercado cripto? A mentoria individual é feita para quem quer resultados reais, não promessas vazias.
             </p>
 
-            <div className="flex items-center justify-center gap-2 text-gray-300 text-sm">
+            <div className="flex items-center gap-2 text-gray-300 text-sm">
               <Clock size={16} className="text-blue-400" />
               <span>Vagas limitadas a cada mês</span>
             </div>
@@ -120,7 +120,7 @@ const Mentoria: React.FC = () => {
       {/* Diferencial Section */}
       <section className="py-20 md:py-28 px-6 md:px-12 bg-[#0a0a0a] border-t border-gray-800">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Por Que Mentoria e Não Curso?</h2>
             <p className="text-gray-400 text-lg">Porque seu problema é único. Sua solução também precisa ser.</p>
           </div>
@@ -256,7 +256,7 @@ const Mentoria: React.FC = () => {
       {/* O que Esperar Section */}
       <section className="py-20 md:py-28 px-6 md:px-12 bg-[#0a0a0a]">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Como Funciona a Mentoria</h2>
             <p className="text-lg text-gray-400">Processo simples e direto para máxima eficiência</p>
           </div>
