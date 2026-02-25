@@ -254,3 +254,4 @@ const DeclareCripto: React.FC = () => {
 };
 
 export default DeclareCripto;
+// Force redeploy Wed Feb 25 05:40:03 EST 2026
