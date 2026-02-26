@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'wouter';
 import { ArrowRight, Youtube, Instagram, Users, Clock, Menu, X, Send, AlertCircle, CheckCircle2, TrendingDown, Zap } from 'lucide-react';
 
@@ -30,13 +30,25 @@ const TypewriterText: React.FC<{ text: string }> = ({ text }) => {
 const Home: React.FC = () => {
   const [scrollY, setScrollY] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isPhotoVisible, setIsPhotoVisible] = useState(true);
+  const photoRef = useRef<HTMLDivElement>(null);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrollY(window.scrollY);
+      const currentScrollY = window.scrollY;
+      setScrollY(currentScrollY);
+      
+      // Trigger the "reveal" animation again when scrolling
+      // We toggle the visibility state briefly to restart the CSS animation
+      if (Math.abs(currentScrollY - lastScrollY.current) > 10) {
+        setIsPhotoVisible(false);
+        setTimeout(() => setIsPhotoVisible(true), 10);
+        lastScrollY.current = currentScrollY;
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -71,8 +83,8 @@ const Home: React.FC = () => {
             transform: translateX(0);
           }
         }
-        .animate-slide-in-right {
-          animation: slideInRight 1s ease-out forwards;
+        .animate-reveal {
+          animation: slideInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
         .image-container {
           position: relative;
@@ -160,11 +172,11 @@ const Home: React.FC = () => {
               <div className="absolute -inset-8 bg-gradient-to-b from-blue-500/10 via-purple-500/5 to-transparent rounded-full blur-3xl"></div>
               
               <div 
-                className="relative z-20 w-full max-w-lg animate-slide-in-right image-container"
+                ref={photoRef}
+                className={`relative z-20 w-full max-w-lg image-container ${isPhotoVisible ? 'animate-reveal' : 'opacity-0'}`}
                 style={{
-                  transform: `translateX(${Math.min(scrollY * 0.15, 50)}px) scale(${1 + Math.min(scrollY * 0.0005, 0.1)})`,
-                  transition: 'transform 0.1s ease-out, filter 0.3s ease-out',
-                  filter: `brightness(${1 + Math.min(scrollY * 0.001, 0.3)})`
+                  transform: `translateX(${Math.min(scrollY * 0.1, 30)}px)`,
+                  transition: 'transform 0.1s ease-out'
                 }}
               >
                 <img
