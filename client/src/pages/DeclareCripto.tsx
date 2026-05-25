@@ -24,13 +24,13 @@ const DeclareCripto: React.FC = () => {
           <Link href="/" className="flex items-center gap-2 font-bold text-xl hover:opacity-80 transition-opacity">
             INVESTIDOR MATUTO
           </Link>
-
+          
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex gap-8">
             {navLinks.map((link) => (
-              <Link
+              <Link 
                 key={link.href}
-                href={link.href}
+                href={link.href} 
                 className={`text-sm font-medium transition-colors tracking-wider ${link.active ? 'text-blue-400' : 'text-gray-400 hover:text-blue-400'}`}
               >
                 {link.label}
@@ -39,7 +39,7 @@ const DeclareCripto: React.FC = () => {
           </nav>
 
           {/* Mobile Menu Button */}
-          <button
+          <button 
             className="lg:hidden p-2 text-gray-400 hover:text-white transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
@@ -52,9 +52,9 @@ const DeclareCripto: React.FC = () => {
           <div className="lg:hidden absolute top-full left-0 w-full bg-[#0a0a0a] border-b border-gray-800 animate-in fade-in slide-in-from-top-4 duration-300">
             <nav className="flex flex-col p-6 gap-4">
               {navLinks.map((link) => (
-                <Link
+                <Link 
                   key={link.href}
-                  href={link.href}
+                  href={link.href} 
                   onClick={() => setIsMenuOpen(false)}
                   className={`text-lg font-medium transition-colors py-2 border-b border-gray-900 last:border-0 ${link.active ? 'text-blue-400' : 'text-gray-300 hover:text-blue-400'}`}
                 >
@@ -72,17 +72,17 @@ const DeclareCripto: React.FC = () => {
           <div className="inline-block mb-6 px-4 py-2 bg-blue-500/10 border border-blue-500/30 rounded-full">
             <span className="text-blue-400 text-sm font-semibold">⚖️ PARCERIA DECLARE CRIPTO</span>
           </div>
-
+          
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.2] mb-8 tracking-tight">
             Declare suas Criptos <span className="text-blue-500">Sem Dor de Cabeça</span>
           </h1>
-
+          
           <p className="text-lg md:text-xl text-gray-400 mb-12 leading-relaxed max-w-2xl mx-auto">
             Fique em dia com o Leão e evite multas. Use a plataforma líder em conformidade fiscal para investidores de criptoativos no Brasil.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
+            <a 
               href={partnerLink}
               target="_blank"
               rel="noopener noreferrer"
@@ -91,7 +91,7 @@ const DeclareCripto: React.FC = () => {
               Regularizar Agora
               <ArrowRight size={20} />
             </a>
-            <a
+            <a 
               href={partnerLink}
               target="_blank"
               rel="noopener noreferrer"
@@ -111,8 +111,8 @@ const DeclareCripto: React.FC = () => {
             <p className="text-lg text-gray-400 mb-10 max-w-2xl mx-auto">
               Clique no botão abaixo para ser redirecionado à plataforma oficial da Declare Cripto e garantir seu atendimento personalizado.
             </p>
-
-            <a
+            
+            <a 
               href={partnerLink}
               target="_blank"
               rel="noopener noreferrer"
@@ -121,7 +121,7 @@ const DeclareCripto: React.FC = () => {
               Ir para Declare Cripto
               <ArrowRight size={24} />
             </a>
-
+            
             <p className="text-xs text-gray-500 mt-8">
               Você será redirecionado para um ambiente seguro e criptografado.
             </p>
@@ -156,7 +156,7 @@ const DeclareCripto: React.FC = () => {
       <section className="py-20 px-6 md:px-12 bg-[#0d0d0d] border-t border-gray-900">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-left">Por que Declarar Criptoativos é Crucial em 2026?</h2>
-
+          
           <div className="grid md:grid-cols-2 gap-8">
             <div className="p-8 rounded-2xl border border-gray-800 bg-gray-900/40">
               <div className="flex items-center gap-4 mb-6">
@@ -206,7 +206,7 @@ const DeclareCripto: React.FC = () => {
               </ul>
             </div>
           </div>
-
+          
           <div className="mt-12 p-8 rounded-2xl bg-blue-600/10 border border-blue-500/20 flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-4">
               <Calendar className="text-blue-500" size={40} />
@@ -215,7 +215,7 @@ const DeclareCripto: React.FC = () => {
                 <p className="text-gray-400">Abertura do prazo para a Declaração de Ajuste Anual (DIRPF).</p>
               </div>
             </div>
-            <a
+            <a 
               href={partnerLink}
               target="_blank"
               rel="noopener noreferrer"
@@ -233,28 +233,28 @@ const DeclareCripto: React.FC = () => {
           <div className="flex items-center justify-center gap-4 flex-wrap">
             {/* Copyright */}
             <p className="text-gray-500 text-sm">&copy; 2026 Investidor Matuto. Todos os direitos reservados.</p>
-
+            
             {/* Separador */}
             <span className="text-gray-600">|</span>
-
+            
             {/* Slogan */}
             <p className="text-gray-400 font-semibold text-sm">Quem vence? Quando você vence.</p>
-
+            
             {/* Separador */}
             <span className="text-gray-600">|</span>
-
+            
             {/* Redes Sociais */}
             <div className="flex items-center gap-4">
               {/* X (Twitter) */}
               <a href="https://twitter.com/invest_matuto" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" title="X">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.514l-5.106-6.67-5.829 6.67H2.422l7.723-8.835L1.254 2.25h6.554l4.882 6.467 5.633-6.467zM17.534 20.766h1.832L6.455 3.812H4.527l13.007 16.954z"/></svg>
               </a>
-
+              
               {/* YouTube */}
               <a href="https://youtube.com/@investidormatuto" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" title="YouTube">
                 <Youtube size={20} />
               </a>
-
+              
               {/* Instagram */}
               <a href="https://instagram.com/investidormatuto" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" title="Instagram">
                 <Instagram size={20} />

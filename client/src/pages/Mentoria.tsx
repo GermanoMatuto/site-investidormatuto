@@ -179,9 +179,9 @@ const HeroSection: React.FC = () => {
 
 const Mentoria: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [formData, setFormData] = useState({
-    nome: '',
-    telefone: '',
+  const [formData, setFormData] = useState({ 
+    nome: '', 
+    telefone: '', 
     email: '',
     problema: ''
   });
@@ -218,13 +218,13 @@ const Mentoria: React.FC = () => {
           <Link href="/" className="flex items-center gap-2 font-bold text-xl hover:opacity-80 transition-opacity">
             INVESTIDOR MATUTO
           </Link>
-
+          
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex gap-8">
             {navLinks.map((link) => (
-              <Link
+              <Link 
                 key={link.href}
-                href={link.href}
+                href={link.href} 
                 className={`text-sm font-medium transition-colors tracking-wider ${link.active ? 'text-blue-400' : 'text-gray-400 hover:text-blue-400'}`}
               >
                 {link.label}
@@ -233,7 +233,7 @@ const Mentoria: React.FC = () => {
           </nav>
 
           {/* Mobile Menu Button */}
-          <button
+          <button 
             className="lg:hidden p-2 text-gray-400 hover:text-white transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
@@ -246,9 +246,9 @@ const Mentoria: React.FC = () => {
           <div className="lg:hidden absolute top-full left-0 w-full bg-[#0a0a0a] border-b border-gray-800 animate-in fade-in slide-in-from-top-4 duration-300">
             <nav className="flex flex-col p-6 gap-4">
               {navLinks.map((link) => (
-                <Link
+                <Link 
                   key={link.href}
-                  href={link.href}
+                  href={link.href} 
                   onClick={() => setIsMenuOpen(false)}
                   className={`text-lg font-medium transition-colors py-2 border-b border-gray-900 last:border-0 ${link.active ? 'text-blue-400' : 'text-gray-300 hover:text-blue-400'}`}
                 >
@@ -271,7 +271,7 @@ const Mentoria: React.FC = () => {
         <div className="max-w-4xl mx-auto">
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-blue-600/5 rounded-2xl blur-2xl"></div>
-
+            
             <div className="relative bg-gradient-to-br from-gray-900/80 to-gray-900/40 border border-blue-500/30 rounded-2xl p-8 md:p-12 backdrop-blur">
               <div className="mb-8">
                 <h2 className="text-3xl md:text-4xl font-bold mb-3">Solicite Sua Mentoria</h2>
@@ -428,7 +428,7 @@ const Mentoria: React.FC = () => {
           <p className="text-gray-400 text-lg mb-12">
             Não espere mais. Cada dia que passa é uma oportunidade perdida de aprender e crescer.
           </p>
-
+          
           <div className="flex gap-4 justify-center flex-wrap">
             <a
               href="#formulario"
@@ -458,7 +458,7 @@ const Mentoria: React.FC = () => {
             <span className="text-gray-600">|</span>
             <p className="text-gray-400 font-semibold text-sm">Quem vence? Quando você vence.</p>
             <span className="text-gray-600">|</span>
-
+            
             <div className="flex items-center gap-4">
               <a href="https://twitter.com/invest_matuto" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" title="X">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.514l-5.106-6.67-5.829 6.67H2.422l7.723-8.835L1.254 2.25h6.554l4.882 6.467 5.633-6.467zM17.534 20.766h1.832L6.455 3.812H4.527l13.007 16.954z"/></svg>
@@ -482,4 +482,3 @@ const Mentoria: React.FC = () => {
 };
 
 export default Mentoria;
-

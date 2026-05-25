@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'wouter';
-import {
-  ArrowRight, Shield, Zap, Lock, Menu, X, Send, Youtube, Instagram,
-  CheckCircle2, AlertCircle, Info, Smartphone, Bluetooth,
+import { 
+  ArrowRight, Shield, Zap, Lock, Menu, X, Send, Youtube, Instagram, 
+  CheckCircle2, AlertCircle, Info, Smartphone, Bluetooth, 
   Fingerprint, Eye, RefreshCcw, ShieldCheck, Cpu, TrendingUp
 } from 'lucide-react';
 

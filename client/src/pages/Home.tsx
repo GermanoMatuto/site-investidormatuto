@@ -157,20 +157,20 @@ const Home: React.FC = () => {
           transform: scale(0.92) translateX(40px);
         }
       `}</style>
-
+      
       {/* Header Padronizado com Menu Responsivo */}
       <header className="sticky top-0 z-50 bg-[#0a0a0a]/95 backdrop-blur border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 font-bold text-xl hover:opacity-80 transition-opacity">
             INVESTIDOR MATUTO
           </Link>
-
+          
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex gap-8">
             {navLinks.map((link) => (
-              <Link
+              <Link 
                 key={link.href}
-                href={link.href}
+                href={link.href} 
                 className="text-sm font-medium text-gray-400 hover:text-blue-400 transition-colors tracking-wider"
               >
                 {link.label}
@@ -179,7 +179,7 @@ const Home: React.FC = () => {
           </nav>
 
           {/* Mobile Menu Button */}
-          <button
+          <button 
             className="lg:hidden p-2 text-gray-400 hover:text-white transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
@@ -192,9 +192,9 @@ const Home: React.FC = () => {
           <div className="lg:hidden absolute top-full left-0 w-full bg-[#0a0a0a] border-b border-gray-800 animate-in fade-in slide-in-from-top-4 duration-300">
             <nav className="flex flex-col p-6 gap-4">
               {navLinks.map((link) => (
-                <Link
+                <Link 
                   key={link.href}
-                  href={link.href}
+                  href={link.href} 
                   onClick={() => setIsMenuOpen(false)}
                   className="text-lg font-medium text-gray-300 hover:text-blue-400 transition-colors py-2 border-b border-gray-900 last:border-0"
                 >
@@ -224,14 +224,14 @@ const Home: React.FC = () => {
         <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 1, background: 'linear-gradient(to right, #0a0a0a 0%, #0a0a0a 38%, rgba(10,10,10,0.4) 58%, transparent 75%)' }}></div>
         {/* Fade na borda inferior da seção — dissolve a imagem para o fundo escuro */}
         <div className="absolute bottom-0 left-0 right-0 pointer-events-none" style={{ zIndex: 10, height: '350px', background: 'linear-gradient(to bottom, transparent 0%, rgba(10,10,10,0.08) 20%, rgba(10,10,10,0.25) 40%, rgba(10,10,10,0.55) 60%, rgba(10,10,10,0.82) 80%, #0a0a0a 100%)' }}></div>
-
+        
         <div className="max-w-7xl mx-auto w-full" style={{ position: 'relative', zIndex: 2 }}>
           <div className="grid md:grid-cols-2 gap-0 items-center md:-mr-32">
             <div className="md:pr-8">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.2] mb-8 tracking-tight">
                 Aprenda a Investir e Ganhar Dinheiro <span className="text-blue-400">com Criptomoedas</span>
               </h1>
-
+              
               <TypewriterText text="Descubra o universo das criptomoedas e estratégias de investimento que transformam vidas." />
 
               <div className="flex gap-4">
@@ -339,25 +339,25 @@ const Home: React.FC = () => {
               <p className="text-blue-500 uppercase tracking-[0.3em] text-xs md:text-sm font-semibold mb-6">
                 Sobre o Criador
               </p>
-
+              
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.2] mb-8">
                 Quem é<br />
                 <span className="text-blue-400">Investidor</span><br />
                 <span className="text-blue-400">Matuto</span>
               </h2>
-
+              
               <p className="text-gray-400 text-base leading-relaxed mb-6">
                 Sou <strong className="text-white">Erivelton Germano</strong>, o Investidor Matuto, educador financeiro focado em criptomoedas buscando reduzir riscos para quem quer aprender a investir com mais clareza e menos erros caros que possam te tirar desse incrível mercado.
               </p>
-
+              
               <p className="text-gray-400 text-base leading-relaxed mb-6">
                 Atuo no mercado cripto há mais de 6 anos, sou o criador do canal <strong className="text-white">Investidor Matuto</strong> no YouTube onde tudo começou e um dos idealizadores do evento <strong className="text-white">BitHub</strong> e já palestrei em eventos como <strong className="text-white">BitSampa</strong>, <strong className="text-white">Blockchain Conference Brazil</strong> e <strong className="text-white">Ethereum Brasil</strong>, fui um dos vencedores do <strong className="text-white">Melhor Conteúdo do Binance Campus América Latina 2025</strong> (Binance Campus Patagônia).
               </p>
-
+              
               <p className="text-gray-400 text-base leading-relaxed mb-6">
                 Minha trajetória não foi feita só de acertos. Eu já passei por duas grandes liquidações no mercado de futuros — e foi isso que acelerou minha maturidade operacional. Porque "ganhar dinheiro" todo mundo promete. Mas falar sobre o que dá errado, o que quebra emocional e o que destrói capital… poucos têm coragem.
               </p>
-
+              
               <p className="text-gray-400 text-base leading-relaxed mb-8">
                 Por isso, a minha mission como Investidor Matuto é simples: te ajudar a evitar os erros que fazem a maioria perder dinheiro, para que você consiga focar no que realmente importa — crescer com consistência, com gestão de risco e tomada de decisão mais inteligente. Decidi escrever minha própria história com bitcoin e altcoins— e agora quero ajudar você a escrever a sua, com estratégia, método e pé no chão.
               </p>
@@ -401,7 +401,7 @@ const Home: React.FC = () => {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">Pronto para começar sua jornada?</h2>
           <p className="text-gray-400 text-lg mb-12">Junte-se a milhares de pessoas que já estão aprendendo e investindo com confiança.</p>
-
+          
           <div className="flex gap-4 justify-center flex-wrap">
             <a
               href={socialLinks.youtube}
@@ -429,28 +429,28 @@ const Home: React.FC = () => {
           <div className="flex items-center justify-center gap-4 flex-wrap">
             {/* Copyright */}
             <p className="text-gray-500 text-sm">&copy; 2026 Investidor Matuto. Todos os direitos reservados.</p>
-
+            
             {/* Separador */}
             <span className="text-gray-600">|</span>
-
+            
             {/* Slogan */}
             <p className="text-gray-400 font-semibold text-sm">Quem vence? Quando você vence.</p>
-
+            
             {/* Separador */}
             <span className="text-gray-600">|</span>
-
+            
             {/* Redes Sociais */}
             <div className="flex items-center gap-4">
               {/* X (Twitter) */}
               <a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" title="X">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.514l-5.106-6.67-5.829 6.67H2.422l7.723-8.835L1.254 2.25h6.554l4.882 6.467 5.633-6.467zM17.534 20.766h1.832L6.455 3.812H4.527l13.007 16.954z"/></svg>
               </a>
-
+              
               {/* YouTube */}
               <a href={socialLinks.youtube} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" title="YouTube">
                 <Youtube size={20} />
               </a>
-
+              
               {/* Instagram */}
               <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" title="Instagram">
                 <Instagram size={20} />

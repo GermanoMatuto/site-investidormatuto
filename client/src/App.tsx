@@ -1,23 +1,23 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { lazy, Suspense } from "react";
+import { Suspense, lazy } from "react";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 
-const Home = lazy(() => import("./pages/Home"));
-const OKX = lazy(() => import("./pages/OKX"));
-const Gate = lazy(() => import("./pages/Gate"));
-const BingX = lazy(() => import("./pages/BingX"));
-const Exchanges = lazy(() => import("./pages/Exchanges"));
-const Hardwallet = lazy(() => import("./pages/Hardwallet"));
-const Kast = lazy(() => import("./pages/Kast"));
-const Telegram = lazy(() => import("./pages/Telegram"));
-const DeclareCripto = lazy(() => import("./pages/DeclareCripto"));
-const Mentoria = lazy(() => import("./pages/Mentoria"));
-const Curso = lazy(() => import("./pages/Curso"));
-const Construction = lazy(() => import("./pages/Construction"));
-const NotFound = lazy(() => import("./pages/NotFound"));
+const Home = lazy(() => import("@/pages/Home"));
+const OKX = lazy(() => import("@/pages/OKX"));
+const Gate = lazy(() => import("@/pages/Gate"));
+const BingX = lazy(() => import("@/pages/BingX"));
+const Kast = lazy(() => import("@/pages/Kast"));
+const Telegram = lazy(() => import("@/pages/Telegram"));
+const DeclareCripto = lazy(() => import("@/pages/DeclareCripto"));
+const Construction = lazy(() => import("@/pages/Construction"));
+const Curso = lazy(() => import("@/pages/Curso"));
+const Mentoria = lazy(() => import("@/pages/Mentoria"));
+const Exchanges = lazy(() => import("@/pages/Exchanges"));
+const Hardwallet = lazy(() => import("@/pages/Hardwallet"));
+const NotFound = lazy(() => import("@/pages/NotFound"));
 
 function PageLoader() {
   return (

@@ -52,13 +52,13 @@ const Exchanges: React.FC = () => {
           <Link href="/" className="flex items-center gap-2 font-bold text-xl hover:opacity-80 transition-opacity">
             INVESTIDOR MATUTO
           </Link>
-
+          
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex gap-8">
             {navLinks.map((link) => (
-              <Link
+              <Link 
                 key={link.href}
-                href={link.href}
+                href={link.href} 
                 className={`text-sm font-medium transition-colors tracking-wider ${'text-gray-400 hover:text-blue-400'}`}
               >
                 {link.label}
@@ -67,7 +67,7 @@ const Exchanges: React.FC = () => {
           </nav>
 
           {/* Mobile Menu Button */}
-          <button
+          <button 
             className="lg:hidden p-2 text-gray-400 hover:text-white transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
@@ -80,9 +80,9 @@ const Exchanges: React.FC = () => {
           <div className="lg:hidden absolute top-full left-0 w-full bg-[#0a0a0a] border-b border-gray-800 animate-in fade-in slide-in-from-top-4 duration-300">
             <nav className="flex flex-col p-6 gap-4">
               {navLinks.map((link) => (
-                <Link
+                <Link 
                   key={link.href}
-                  href={link.href}
+                  href={link.href} 
                   onClick={() => setIsMenuOpen(false)}
                   className={`text-lg font-medium transition-colors py-2 border-b border-gray-900 last:border-0 ${'text-gray-300 hover:text-blue-400'}`}
                 >
@@ -100,11 +100,11 @@ const Exchanges: React.FC = () => {
           <div className="inline-block mb-6 px-4 py-2 bg-blue-500/10 border border-blue-500/30 rounded-full">
             <span className="text-blue-400 text-sm font-semibold">🛡️ ESTRATÉGIA DE SEGURANÇA</span>
           </div>
-
+          
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.2] mb-8 tracking-tight">
             Não coloque todos os ovos na <span className="text-blue-500">mesma cesta</span>
           </h1>
-
+          
           <p className="text-lg md:text-xl text-gray-400 mb-12 leading-relaxed max-w-3xl mx-auto">
             O investidor profissional não escolhe apenas uma corretora. Ele diversifica seu capital para reduzir riscos e aproveitar o melhor de cada plataforma. Monte seu ecossistema completo abaixo.
           </p>
@@ -145,16 +145,16 @@ const Exchanges: React.FC = () => {
                 <div className="mb-6 inline-flex p-4 bg-blue-500/10 rounded-xl group-hover:bg-blue-500/20 transition-colors w-fit">
                   {exchange.icon}
                 </div>
-
+                
                 <div className="mb-4">
                   <span className="text-xs font-bold text-blue-400 uppercase tracking-widest">{exchange.bonus}</span>
                   <h3 className="text-3xl font-bold mt-1">{exchange.name}</h3>
                 </div>
-
+                
                 <p className="text-gray-400 mb-8 leading-relaxed flex-grow">
                   {exchange.description}
                 </p>
-
+                
                 <ul className="space-y-3 mb-8">
                   {exchange.features.map((feature, fIndex) => (
                     <li key={fIndex} className="flex items-center gap-3 text-sm text-gray-300">
@@ -163,8 +163,8 @@ const Exchanges: React.FC = () => {
                     </li>
                   ))}
                 </ul>
-
-                <a
+                
+                <a 
                   href={exchange.link}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -232,7 +232,7 @@ const Exchanges: React.FC = () => {
           <p className="text-gray-400 text-lg mb-10">
             Após abrir suas contas em cada uma das exchanges acima, valide seu acesso para entrar no Grupo VIP e receber as informações que fazem a diferença.
           </p>
-          <Link
+          <Link 
             href="/telegram"
             className="inline-flex items-center gap-2 px-10 py-5 border-2 border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white font-bold rounded-lg transition-all duration-300 text-lg"
           >
@@ -248,28 +248,28 @@ const Exchanges: React.FC = () => {
           <div className="flex items-center justify-center gap-4 flex-wrap">
             {/* Copyright */}
             <p className="text-gray-500 text-sm">&copy; 2026 Investidor Matuto. Todos os direitos reservados.</p>
-
+            
             {/* Separador */}
             <span className="text-gray-600">|</span>
-
+            
             {/* Slogan */}
             <p className="text-gray-400 font-semibold text-sm">Quem vence? Quando você vence.</p>
-
+            
             {/* Separador */}
             <span className="text-gray-600">|</span>
-
+            
             {/* Redes Sociais */}
             <div className="flex items-center gap-4">
               {/* X (Twitter) */}
               <a href="https://twitter.com/invest_matuto" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" title="X">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.514l-5.106-6.67-5.829 6.67H2.422l7.723-8.835L1.254 2.25h6.554l4.882 6.467 5.633-6.467zM17.534 20.766h1.832L6.455 3.812H4.527l13.007 16.954z"/></svg>
               </a>
-
+              
               {/* YouTube */}
               <a href="https://www.youtube.com/@investidormatuto" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" title="YouTube">
                 <Youtube size={20} />
               </a>
-
+              
               {/* Instagram */}
               <a href="https://www.instagram.com/investidormatuto/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" title="Instagram">
                 <Instagram size={20} />

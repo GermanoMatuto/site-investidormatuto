@@ -38,13 +38,13 @@ const Curso: React.FC = () => {
           <Link href="/" className="flex items-center gap-2 font-bold text-xl hover:opacity-80 transition-opacity">
             INVESTIDOR MATUTO
           </Link>
-
+          
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex gap-8">
             {navLinks.map((link) => (
-              <Link
+              <Link 
                 key={link.href}
-                href={link.href}
+                href={link.href} 
                 className={`text-sm font-medium transition-colors tracking-wider ${link.active ? 'text-blue-400' : 'text-gray-400 hover:text-blue-400'}`}
               >
                 {link.label}
@@ -53,7 +53,7 @@ const Curso: React.FC = () => {
           </nav>
 
           {/* Mobile Menu Button */}
-          <button
+          <button 
             className="lg:hidden p-2 text-gray-400 hover:text-white transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
@@ -66,9 +66,9 @@ const Curso: React.FC = () => {
           <div className="lg:hidden absolute top-full left-0 w-full bg-[#0a0a0a] border-b border-gray-800 animate-in fade-in slide-in-from-top-4 duration-300">
             <nav className="flex flex-col p-6 gap-4">
               {navLinks.map((link) => (
-                <Link
+                <Link 
                   key={link.href}
-                  href={link.href}
+                  href={link.href} 
                   onClick={() => setIsMenuOpen(false)}
                   className={`text-lg font-medium transition-colors py-2 border-b border-gray-900 last:border-0 ${link.active ? 'text-blue-400' : 'text-gray-300 hover:text-blue-400'}`}
                 >
@@ -86,18 +86,18 @@ const Curso: React.FC = () => {
           <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
         </div>
-
+        
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="mb-12">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/30 rounded-full mb-6">
               <Zap size={16} className="text-blue-400" />
               <span className="text-sm font-semibold text-blue-400">Educação em Criptomoedas</span>
             </div>
-
+            
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6 tracking-tight text-left">
               Aprenda Cripto <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">do Zero</span>
             </h1>
-
+            
             <p className="text-lg md:text-xl text-gray-400 max-w-3xl leading-relaxed">
               Conteúdo educativo estruturado e gratuito para você começar sua jornada no mercado de criptomoedas com segurança, método e pé no chão.
             </p>
@@ -110,7 +110,7 @@ const Curso: React.FC = () => {
         <div className="max-w-4xl mx-auto">
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-blue-600/5 rounded-2xl blur-2xl"></div>
-
+            
             <div className="relative bg-gradient-to-br from-gray-900/80 to-gray-900/40 border border-blue-500/30 rounded-2xl p-8 md:p-12 backdrop-blur">
               <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
                 {/* Left Side - Content */}
@@ -121,11 +121,11 @@ const Curso: React.FC = () => {
                     </div>
                     <h2 className="text-2xl md:text-3xl font-bold">Acesso VIP Antecipado</h2>
                   </div>
-
+                  
                   <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-6">
                     O curso oficial está sendo preparado com muito cuidado. Deixe seus dados para:
                   </p>
-
+                  
                   <ul className="space-y-3">
                     {[
                       'Receber guias gratuitos exclusivos',
@@ -365,7 +365,7 @@ const Curso: React.FC = () => {
           <p className="text-gray-400 text-lg mb-12">
             Junte-se à comunidade do Investidor Matuto e comece sua jornada com segurança e método.
           </p>
-
+          
           <div className="flex gap-4 justify-center flex-wrap">
             <a
               href="https://t.me/+vva2e0bVkoFiNWFh"
@@ -397,7 +397,7 @@ const Curso: React.FC = () => {
             <span className="text-gray-600">|</span>
             <p className="text-gray-400 font-semibold text-sm">Quem vence? Quando você vence.</p>
             <span className="text-gray-600">|</span>
-
+            
             <div className="flex items-center gap-4">
               <a href="https://twitter.com/invest_matuto" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" title="X">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.514l-5.106-6.67-5.829 6.67H2.422l7.723-8.835L1.254 2.25h6.554l4.882 6.467 5.633-6.467zM17.534 20.766h1.832L6.455 3.812H4.527l13.007 16.954z"/></svg>
