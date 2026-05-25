@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'wouter';
-import { Send, CheckCircle, AlertCircle, Menu, X, Youtube, Instagram, PlayCircle } from 'lucide-react';
+import { Send, CheckCircle, AlertCircle, Menu, X, Youtube, Instagram, ExternalLink, PlayCircle } from 'lucide-react';
 
 const Telegram: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
