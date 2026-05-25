@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'wouter';
-import { Send, CheckCircle, AlertCircle, Menu, X, Youtube, Instagram, ExternalLink, PlayCircle } from 'lucide-react';
+import { Send, CheckCircle, AlertCircle, Menu, X, Youtube, Instagram, PlayCircle } from 'lucide-react';
 
 const Telegram: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -195,22 +195,22 @@ const Telegram: React.FC = () => {
                   Após criar sua conta, localize seu <strong className="text-white">UID</strong> (número de identificação único) dentro da plataforma da BingX. Você precisará informá-lo no formulário abaixo para validar seu acesso ao grupo.
                 </p>
 
-                {/* Área clicável - tutorial UID */}
-                <a
-                  href="https://youtube.com/shorts/82gfKME8fZI"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-5 py-3 bg-gray-800 hover:bg-gray-700 border border-gray-700 hover:border-blue-500/50 rounded-lg transition-all duration-200 group"
-                >
-                  <div className="w-8 h-8 bg-blue-500/20 rounded-full flex items-center justify-center group-hover:bg-blue-500/30 transition-colors">
-                    <PlayCircle size={18} className="text-blue-400" />
+                {/* Tutorial UID inline */}
+                <div id="tutorial-uid">
+                  <p className="text-xs text-blue-400 font-semibold mb-2 flex items-center gap-1.5">
+                    <PlayCircle size={13} />
+                    Tutorial: como encontrar seu UID
+                  </p>
+                  <div className="rounded-xl overflow-hidden border border-gray-700 shadow-lg" style={{ maxWidth: '280px' }}>
+                    <video
+                      src="/bingx-uid-tutorial.mp4"
+                      controls
+                      playsInline
+                      className="w-full"
+                      style={{ aspectRatio: '9/16' }}
+                    />
                   </div>
-                  <div className="text-left">
-                    <span className="text-sm font-semibold text-white block">Não sabe encontrar seu UID?</span>
-                    <span className="text-xs text-blue-400">Assistir tutorial no YouTube</span>
-                  </div>
-                  <ExternalLink size={14} className="text-gray-500 group-hover:text-blue-400 transition-colors ml-auto" />
-                </a>
+                </div>
               </div>
             </div>
 
@@ -299,13 +299,11 @@ const Telegram: React.FC = () => {
                     UID da {formData.exchange.toUpperCase()}
                   </label>
                   <a
-                    href="https://bingx.com/pt-br/partner/investidormatuto"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="#tutorial-uid"
                     className="inline-flex items-center gap-1.5 text-xs text-blue-400 hover:text-blue-300 transition-colors"
                   >
                     <PlayCircle size={13} />
-                    Não sabe encontrar seu UID? BingX
+                    Ver tutorial
                   </a>
                 </div>
                 <input
