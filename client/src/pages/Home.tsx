@@ -4,6 +4,7 @@ import { ArrowRight, Users, Clock, AlertCircle, CheckCircle2, TrendingDown, Zap 
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { usePageMeta } from '@/hooks/usePageMeta';
+import { SOCIAL_LINKS } from '@/const';
 
 const TypewriterText: React.FC<{ text: string }> = ({ text }) => {
   const [displayedText, setDisplayedText] = useState('');
@@ -44,8 +45,7 @@ const Home: React.FC = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       setScrollY(currentScrollY);
-      
-      // Trigger the "reveal" animation again when scrolling
+
       if (Math.abs(currentScrollY - lastScrollY.current) > 10) {
         setIsPhotoVisible(false);
         setTimeout(() => setIsPhotoVisible(true), 10);
@@ -83,20 +83,20 @@ const Home: React.FC = () => {
           height: auto;
         }
       `}</style>
-      
+
       <Header />
 
       {/* Hero Section */}
       <section className="relative py-24 md:py-32 px-6 md:px-12 bg-[#0a0a0a] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent pointer-events-none"></div>
-        
+
         <div className="max-w-7xl mx-auto w-full relative z-10">
           <div className="grid md:grid-cols-2 gap-0 items-center md:-mr-32">
             <div className="md:pr-8">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.2] mb-8 tracking-tight">
                 Aprenda a Investir e Ganhar Dinheiro <span className="text-blue-400">com Criptomoedas</span>
               </h1>
-              
+
               <TypewriterText text="Descubra o universo das criptomoedas e estratégias de investimento que transformam vidas." />
 
               <div className="flex gap-4">
@@ -111,8 +111,8 @@ const Home: React.FC = () => {
 
             <div className="hidden md:flex justify-end items-center relative">
               <div className="absolute -inset-8 bg-gradient-to-b from-blue-500/10 via-purple-500/5 to-transparent rounded-full blur-3xl"></div>
-              
-              <div 
+
+              <div
                 ref={photoRef}
                 className={`relative z-20 w-full max-w-lg image-container ${isPhotoVisible ? 'animate-reveal' : 'opacity-0'}`}
                 style={{
@@ -136,61 +136,6 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Primeiros Passos Section (Dicas) */}
-      <section className="py-20 md:py-28 px-6 md:px-12 bg-gradient-to-b from-[#0a0a0a] to-[#0d0d0d] border-t border-gray-900">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
-              Comece Aqui
-            </h2>
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-              Sua trilha de aprendizado para dominar criptomoedas com segurança e método
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            {[
-              {
-                step: "1",
-                title: "Entenda o Mercado",
-                desc: "Aprenda o que é Bitcoin, blockchain e por que criptomoedas importam. Conhecimento é sua melhor defesa contra erros caros.",
-                color: "from-blue-500 to-blue-600"
-              },
-              {
-                step: "2",
-                title: "Abra sua Conta",
-                desc: "Escolha uma exchange confiável e segura. Veja nossos tutoriais completos para OKX, Gate.io, BingX e outras plataformas.",
-                color: "from-purple-500 to-purple-600"
-              },
-              {
-                step: "3",
-                title: "Proteja seu Capital",
-                desc: "Segurança em cripto não é opcional. Aprenda sobre 2FA, hardware wallets e como evitar os golpes mais comuns.",
-                color: "from-green-500 to-green-600"
-              }
-            ].map((item, idx) => (
-              <div key={idx} className="relative group">
-                <div className={`absolute inset-0 bg-gradient-to-r ${item.color} rounded-2xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-300`}></div>
-                <div className="relative bg-gray-900/50 border border-gray-800 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-300">
-                  <div className={`w-12 h-12 bg-gradient-to-r ${item.color} rounded-lg flex items-center justify-center font-bold text-xl mb-6 shadow-lg`}>
-                    {item.step}
-                  </div>
-                  <h3 className="text-xl font-bold mb-4 text-white group-hover:text-blue-400 transition-colors">{item.title}</h3>
-                  <p className="text-gray-400 leading-relaxed">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="bg-blue-900/20 border border-blue-500/30 rounded-2xl p-8 md:p-12 text-center">
-            <p className="text-gray-300 text-lg mb-6">
-              <strong className="text-white">Lembre-se:</strong> Investimento em cripto requer educação contínua, gestão de risco disciplinada e controle emocional.
-            </p>
-            <p className="text-gray-400 text-base">
-              Explore nossos guias detalhados nas páginas de cada exchange, confira nosso Imposto de Renda e junte-se à comunidade no Telegram para tirar dúvidas.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* About Section */}
       <section className="relative py-24 px-6 md:px-12 bg-[#0d0d0d] border-t border-gray-900">
         <div className="max-w-7xl mx-auto">
@@ -199,25 +144,25 @@ const Home: React.FC = () => {
               <p className="text-blue-500 uppercase tracking-[0.3em] text-xs md:text-sm font-semibold mb-6">
                 Sobre o Criador
               </p>
-              
+
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.2] mb-8">
                 Quem é<br />
                 <span className="text-blue-400">Investidor</span><br />
                 <span className="text-blue-400">Matuto</span>
               </h2>
-              
+
               <p className="text-gray-400 text-base leading-relaxed mb-6">
                 Sou <strong className="text-white">Erivelton Germano</strong>, o Investidor Matuto, educador financeiro focado em criptomoedas buscando reduzir riscos para quem quer aprender a investir com mais clareza e menos erros caros que possam te tirar desse incrível mercado.
               </p>
-              
+
               <p className="text-gray-400 text-base leading-relaxed mb-6">
                 Atuo no mercado cripto há mais de 6 anos, sou o criador do canal <strong className="text-white">Investidor Matuto</strong> no YouTube onde tudo começou e um dos idealizadores do evento <strong className="text-white">BitHub</strong> e já palestrei em eventos como <strong className="text-white">BitSampa</strong>, <strong className="text-white">Blockchain Conference Brazil</strong> e <strong className="text-white">Ethereum Brasil</strong>, fui um dos vencedores do <strong className="text-white">Melhor Conteúdo do Binance Campus América Latina 2025</strong> (Binance Campus Patagônia).
               </p>
-              
+
               <p className="text-gray-400 text-base leading-relaxed mb-6">
                 Minha trajetória não foi feita só de acertos. Eu já passei por duas grandes liquidações no mercado de futuros — e foi isso que acelerou minha maturidade operacional. Porque "ganhar dinheiro" todo mundo promete. Mas falar sobre o que dá errado, o que quebra emocional e o que destrói capital… poucos têm coragem.
               </p>
-              
+
               <p className="text-gray-400 text-base leading-relaxed mb-8">
                 Por isso, a minha mission como Investidor Matuto é simples: te ajudar a evitar os erros que fazem a maioria perder dinheiro, para que você consiga focar no que realmente importa — crescer com consistência, com gestão de risco e tomada de decisão mais inteligente. Decidi escrever minha própria história com bitcoin e altcoins— e agora quero ajudar você a escrever a sua, com estratégia, método e pé no chão.
               </p>
@@ -233,18 +178,156 @@ const Home: React.FC = () => {
 
               <div className="border border-gray-800 rounded-lg p-8 hover:border-blue-500 transition-colors group">
                 <div className="flex items-center gap-4 mb-3">
-                  <div className="text-4xl font-bold text-white group-hover:text-blue-400 transition-colors">6+</div>
+                  <Users size={32} className="text-yellow-500 group-hover:text-yellow-400 transition-colors" />
+                  <div className="text-4xl font-bold text-white group-hover:text-blue-400 transition-colors">25K+</div>
                 </div>
-                <p className="text-gray-500 text-lg">Anos no Mercado Cripto</p>
+                <p className="text-gray-500 text-lg">Seguidores no Binance Square</p>
               </div>
 
               <div className="border border-gray-800 rounded-lg p-8 hover:border-blue-500 transition-colors group">
                 <div className="flex items-center gap-4 mb-3">
-                  <div className="text-4xl font-bold text-white group-hover:text-blue-400 transition-colors">2</div>
+                  <div className="text-4xl font-bold text-white group-hover:text-blue-400 transition-colors">21K</div>
                 </div>
-                <p className="text-gray-500 text-lg">Liquidações (e Aprendizado)</p>
+                <p className="text-gray-500 text-lg">Seguidores no TikTok</p>
+              </div>
+
+              <div className="border border-gray-800 rounded-lg p-8 hover:border-blue-500 transition-colors group">
+                <div className="flex items-center gap-4 mb-3">
+                  <div className="text-4xl font-bold text-white group-hover:text-blue-400 transition-colors">9.5K+</div>
+                </div>
+                <p className="text-gray-500 text-lg">Seguidores no Instagram</p>
+              </div>
+
+              <div className="border border-gray-800 rounded-lg p-8 hover:border-blue-500 transition-colors group">
+                <div className="flex items-center gap-4 mb-3">
+                  <Clock size={32} className="text-blue-500 group-hover:text-blue-400 transition-colors" />
+                  <div className="text-4xl font-bold text-white group-hover:text-blue-400 transition-colors">6+</div>
+                </div>
+                <p className="text-gray-500 text-lg">Anos de experiência no mercado</p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 10 Lições Section */}
+      <section className="relative py-24 md:py-32 px-6 md:px-12 bg-[#0d0d0d] border-t border-gray-900">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-blue-500 uppercase tracking-[0.3em] text-xs md:text-sm font-semibold mb-6">Realidade do Mercado</p>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.2] mb-8">10 Lições Super Sinceras <br /> Sobre Criptomoedas</h2>
+            <p className="text-gray-400 text-lg max-w-3xl mx-auto">Aprenda com quem já errou, aprendeu e evoluiu. Essas são as verdades que ninguém quer falar.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-12">
+            {[
+              {
+                num: "01",
+                title: "Cripto não é uma máquina de dinheiro fácil",
+                desc: "Muita gente entra achando que encontrou um atalho. Quando o mercado corrige, descobre da forma mais cara que volatilidade não perdoa. Cripto pode acelerar ganhos, mas também acelera erros.",
+                icon: TrendingDown
+              },
+              {
+                num: "02",
+                title: "Quem compra sem entender, vende com medo",
+                desc: "Se você entrou porque alguém falou ou porque 'todo mundo está ganhando', você não comprou um ativo. Você comprou ansiedade. Na primeira queda forte, o emocional assume o controle.",
+                icon: AlertCircle
+              },
+              {
+                num: "03",
+                title: "Na alta, quase todo mundo parece gênio",
+                desc: "Bull market cria falsos especialistas. Carteiras sobem, ego sobe junto. O problema aparece quando o mercado vira. É aí que dá para ver quem tem estratégia e quem só estava sendo carregado.",
+                icon: Zap
+              },
+              {
+                num: "04",
+                title: "Realizar lucro é maturidade, não falta de visão",
+                desc: "Muita gente ganha bem e devolve tudo porque fica presa na ideia de 'só vendo no topo'. O topo raramente avisa. Realização parcial e gestão separam crescimento de arrependimento.",
+                icon: CheckCircle2
+              },
+              {
+                num: "05",
+                title: "Copiar operação dos outros é terceirizar seu risco",
+                desc: "Você pode aprender com analistas e traders. Mas entrar só porque alguém entrou é perigoso. Você não sabe o tamanho da posição, o plano de saída, nem o nível de risco daquela pessoa.",
+                icon: AlertCircle
+              },
+              {
+                num: "06",
+                title: "Moeda 'barata' no preço pode ser caríssima no risco",
+                desc: "Token de centavos não significa oportunidade. Preço unitário baixo engana quem ainda não entende mercado. O que importa é capitalização, liquidez, utilidade e execução.",
+                icon: TrendingDown
+              },
+              {
+                num: "07",
+                title: "Segurança em cripto não é opcional",
+                desc: "Você pode acertar análise e mesmo assim perder dinheiro por erro básico. Link falso, golpe, contrato malicioso, seed exposta. No mercado cripto, não basta saber comprar. Você precisa saber proteger.",
+                icon: AlertCircle
+              },
+              {
+                num: "08",
+                title: "Alavancagem amplifica tudo, inclusive seus erros",
+                desc: "Alavancagem não é vilã. Mas na mão errada, vira destruição rápida. Sem gestão de risco e controle emocional, uma boa ideia pode virar liquidação em minutos.",
+                icon: TrendingDown
+              },
+              {
+                num: "09",
+                title: "Narrativa empurra preço, fundamento sustenta valor",
+                desc: "No curto prazo, atenção movimenta o mercado. No longo prazo, sobrevivem os projetos que entregam algo real. Hype pode gerar explosão, mas sem produto e execução, a narrativa perde força.",
+                icon: Zap
+              },
+              {
+                num: "10",
+                title: "Perder dinheiro dói. Não aprender com isso custa mais caro",
+                desc: "Todo mundo que fica tempo suficiente nesse mercado erra. A diferença está no que faz depois do erro. Quem revisa a entrada, o risco, o timing e o emocional evolui.",
+                icon: CheckCircle2
+              }
+            ].map((licao, idx) => {
+              const IconComponent = licao.icon;
+              return (
+                <div key={idx} className="group bg-gray-900/30 border border-gray-800 rounded-xl p-8 hover:border-blue-500/50 hover:bg-gray-900/50 transition-all duration-300">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="text-4xl font-bold text-blue-500/30 group-hover:text-blue-500 transition-colors">{licao.num}</div>
+                    <IconComponent size={24} className="text-blue-400 flex-shrink-0 mt-1" />
+                  </div>
+                  <h3 className="text-lg font-bold mb-3 text-white group-hover:text-blue-400 transition-colors">{licao.title}</h3>
+                  <p className="text-gray-400 text-sm leading-relaxed">{licao.desc}</p>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="bg-gradient-to-r from-blue-900/20 to-blue-900/5 border border-blue-500/30 rounded-2xl p-12 text-center">
+            <p className="text-gray-300 text-lg leading-relaxed mb-6">
+              <strong className="text-white">Criptomoedas não testam só seu conhecimento.</strong> Elas testam sua paciência, seu controle emocional e sua disciplina.
+            </p>
+            <p className="text-gray-400 text-base">
+              Quem trata cripto como jogo tende a perder. Quem trata como processo tende a evoluir.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="relative py-24 px-6 md:px-12 bg-[#0a0a0a] border-t border-gray-900">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">Pronto para começar sua jornada?</h2>
+          <p className="text-gray-400 text-lg mb-12">Junte-se a milhares de pessoas que já estão aprendendo e investindo com confiança.</p>
+
+          <div className="flex gap-4 justify-center flex-wrap">
+            <a
+              href={SOCIAL_LINKS.youtube}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-8 py-4 font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-red-600/50"
+            >
+              Assistir Agora
+            </a>
+            <Link
+              href="/mentoria"
+              className="inline-flex items-center gap-2 border border-gray-600 hover:border-blue-400 text-gray-300 hover:text-blue-400 px-8 py-4 font-semibold rounded-lg transition-colors duration-300"
+            >
+              Explorar Mentoria <ArrowRight size={20} />
+            </Link>
           </div>
         </div>
       </section>

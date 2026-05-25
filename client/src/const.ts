@@ -18,8 +18,6 @@ export const NAV_LINKS = [
   { href: "/mentoria", label: "MENTORIA" },
   { href: "/curso", label: "CURSO" },
   { href: "/telegram", label: "TELEGRAM" },
-  { href: "/okx", label: "OKX" },
-  { href: "/exchanges", label: "EXCHANGES" },
-  { href: "/kast", label: "KAST" },
+  { href: "/bingx", label: "BINGX" },
   { href: "/imposto-de-renda", label: "IMPOSTO DE RENDA" },
 ];
