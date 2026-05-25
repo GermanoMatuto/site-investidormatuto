@@ -6,22 +6,27 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://investidormatuto.com/bingx</loc>
+    <loc>https://investidormatuto.com/telegram</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://investidormatuto.com/telegram</loc>
+    <loc>https://investidormatuto.com/mentoria</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://investidormatuto.com/mentoria</loc>
+    <loc>https://investidormatuto.com/curso</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://investidormatuto.com/hardwallet</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://investidormatuto.com/curso</loc>
+    <loc>https://investidormatuto.com/kast</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -29,5 +34,15 @@
     <loc>https://investidormatuto.com/imposto-de-renda</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://investidormatuto.com/bingx</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://investidormatuto.com/okx</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>

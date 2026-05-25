@@ -1,14 +1,22 @@
-import React from 'react';
-import { ArrowRight, Shield, Zap, Lock, CheckCircle2, AlertCircle, Info, Smartphone, Bluetooth, Fingerprint, Eye, RefreshCcw, ShieldCheck, Cpu, TrendingUp } from 'lucide-react';
-import { Header } from '@/components/Header';
-import { Footer } from '@/components/Footer';
-import { usePageMeta } from '@/hooks/usePageMeta';
+import React, { useState } from 'react';
+import { Link } from 'wouter';
+import {
+  ArrowRight, Shield, Zap, Lock, Menu, X, Send, Youtube, Instagram,
+  CheckCircle2, AlertCircle, Info, Smartphone, Bluetooth,
+  Fingerprint, Eye, RefreshCcw, ShieldCheck, Cpu, TrendingUp
+} from 'lucide-react';
 
 const Hardwallet: React.FC = () => {
-  usePageMeta(
-    "Hardware Wallet - Proteja suas Criptos com OneKey",
-    "Conheça as melhores hardware wallets para guardar suas criptomoedas com segurança máxima. Parceria OneKey."
-  );
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const navLinks = [
+    { href: "/mentoria", label: "MENTORIA" },
+    { href: "/curso", label: "CURSO" },
+    { href: "/telegram", label: "TELEGRAM" },
+    { href: "/hardwallet", label: "HARDWALLET", active: true },
+    { href: "/kast", label: "KAST" },
+    { href: "/imposto-de-renda", label: "IMPOSTO DE RENDA" },
+  ];
 
   const faqs = [
     {
@@ -31,7 +39,33 @@ const Hardwallet: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white font-sans selection:bg-blue-500/30">
-      <Header />
+      {/* Header */}
+      <header className="sticky top-0 z-50 bg-[#0a0a0a]/95 backdrop-blur border-b border-gray-800">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 py-4 flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-2 font-bold text-xl hover:opacity-80 transition-opacity">
+            INVESTIDOR MATUTO
+          </Link>
+          <nav className="hidden lg:flex gap-8">
+            {navLinks.map((link) => (
+              <Link key={link.href} href={link.href} className={`text-sm font-medium transition-colors tracking-wider ${link.active ? 'text-blue-400' : 'text-gray-400 hover:text-blue-400'}`}>
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+          <button className="lg:hidden p-2 text-gray-400 hover:text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
+        {isMenuOpen && (
+          <div className="lg:hidden absolute top-full left-0 w-full bg-[#0a0a0a] border-b border-gray-800 p-6 flex flex-col gap-4 animate-in fade-in slide-in-from-top-4">
+            {navLinks.map((link) => (
+              <Link key={link.href} href={link.href} onClick={() => setIsMenuOpen(false)} className={`text-lg font-medium py-2 border-b border-gray-900 last:border-0 ${link.active ? 'text-blue-400' : 'text-gray-300 hover:text-blue-400'}`}>
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        )}
+      </header>
 
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 px-6 md:px-12 overflow-hidden">
@@ -119,8 +153,9 @@ const Hardwallet: React.FC = () => {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Classic 1S Pure */}
           <div className="group bg-gray-900/40 border border-gray-800 rounded-3xl overflow-hidden hover:border-blue-500/50 transition-all flex flex-col">
-            <div className="h-72 bg-black flex items-center justify-center p-8">
-              <img src="/onekey_touch.webp" alt="OneKey Classic 1S Pure" className="max-h-full object-contain group-hover:scale-110 transition-transform duration-500" />
+            <div className="h-72 bg-gradient-to-b from-gray-800 to-gray-900 flex items-center justify-center p-6 relative overflow-hidden">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(59,130,246,0.08)_0%,_transparent_70%)]"></div>
+              <img src="/onekey_touch.webp" alt="OneKey Classic 1S Pure" className="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-500 relative z-10" />
             </div>
             <div className="p-8 flex-grow flex flex-col">
               <h3 className="text-2xl font-bold mb-2">Classic 1S Pure</h3>
@@ -133,8 +168,9 @@ const Hardwallet: React.FC = () => {
           {/* Classic 1S - Destaque */}
           <div className="group bg-gradient-to-b from-blue-900/20 to-gray-900/40 border-2 border-blue-500/50 rounded-3xl overflow-hidden scale-105 shadow-2xl z-10 flex flex-col">
             <div className="bg-blue-600 text-white text-xs font-black py-2 text-center uppercase tracking-widest">RECOMENDADO</div>
-            <div className="h-72 bg-black flex items-center justify-center p-8">
-              <img src="/onekey_classic.webp" alt="OneKey Classic 1S" className="max-h-full object-contain group-hover:scale-110 transition-transform duration-500" />
+            <div className="h-72 bg-gradient-to-b from-gray-800 to-gray-900 flex items-center justify-center p-6 relative overflow-hidden">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(59,130,246,0.08)_0%,_transparent_70%)]"></div>
+              <img src="/onekey_classic.webp" alt="OneKey Classic 1S" className="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-500 relative z-10" />
             </div>
             <div className="p-8 flex-grow flex flex-col">
               <h3 className="text-2xl font-bold mb-2">Classic 1S</h3>
@@ -146,8 +182,9 @@ const Hardwallet: React.FC = () => {
 
           {/* Pro */}
           <div className="group bg-gray-900/40 border border-gray-800 rounded-3xl overflow-hidden hover:border-blue-500/50 transition-all flex flex-col">
-            <div className="h-72 bg-black flex items-center justify-center p-8">
-              <img src="/onekey_pro.webp" alt="OneKey Pro" className="max-h-full object-contain group-hover:scale-110 transition-transform duration-500" />
+            <div className="h-72 bg-gradient-to-b from-gray-800 to-gray-900 flex items-center justify-center p-6 relative overflow-hidden">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(59,130,246,0.08)_0%,_transparent_70%)]"></div>
+              <img src="/onekey_pro.webp" alt="OneKey Pro" className="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-500 relative z-10" />
             </div>
             <div className="p-8 flex-grow flex flex-col">
               <h3 className="text-2xl font-bold mb-2">OneKey Pro</h3>
@@ -157,6 +194,79 @@ const Hardwallet: React.FC = () => {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Cupons ProHash */}
+      <section className="py-16 px-6 md:px-12 max-w-5xl mx-auto">
+        <a
+          href="https://protegecoin.com.br/matuto"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block group"
+        >
+          <div className="relative overflow-hidden rounded-3xl border border-yellow-500/30 hover:border-yellow-400/60 transition-all duration-300 hover:shadow-[0_0_60px_rgba(234,179,8,0.12)]">
+            {/* Fundo */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#1a1200] via-[#110d00] to-[#0a0a0a]"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_rgba(234,179,8,0.10)_0%,_transparent_60%)]"></div>
+            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-500/50 to-transparent"></div>
+            <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-500/20 to-transparent"></div>
+
+            <div className="relative z-10 p-8 md:p-10">
+              {/* Cabeçalho */}
+              <div className="flex items-center gap-3 mb-8">
+                <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-yellow-500/20 border border-yellow-500/40">
+                  <svg className="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-yellow-400/70 text-xs font-bold uppercase tracking-widest">Cupons Exclusivos</p>
+                  <h2 className="text-xl font-black text-white leading-tight">ProHash</h2>
+                </div>
+                <div className="ml-auto hidden md:flex items-center gap-2 px-5 py-2.5 bg-yellow-500 hover:bg-yellow-400 text-black font-black rounded-xl transition-all group-hover:scale-105 transform text-sm">
+                  ACESSAR LOJA
+                  <ArrowRight size={16} />
+                </div>
+              </div>
+
+              {/* Cupons */}
+              <div className="grid sm:grid-cols-2 gap-4">
+                {/* Cupom 1 */}
+                <div className="relative overflow-hidden rounded-2xl bg-black/30 border border-yellow-500/20 p-5 hover:border-yellow-400/40 transition-colors">
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-yellow-500/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                  <p className="text-xs text-gray-500 uppercase tracking-widest mb-1">Qualquer forma de pagamento</p>
+                  <p className="text-3xl font-black text-yellow-400 mb-3">5% OFF</p>
+                  <div className="flex items-center justify-between bg-yellow-500/10 border border-yellow-500/25 rounded-lg px-4 py-2.5">
+                    <span className="font-mono font-black text-yellow-300 tracking-widest text-sm">MATUTO</span>
+                    <svg className="w-4 h-4 text-yellow-500/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                </div>
+
+                {/* Cupom 2 */}
+                <div className="relative overflow-hidden rounded-2xl bg-black/30 border border-yellow-500/20 p-5 hover:border-yellow-400/40 transition-colors">
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-yellow-500/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                  <p className="text-xs text-gray-500 uppercase tracking-widest mb-1">Pagamento em criptomoedas</p>
+                  <p className="text-3xl font-black text-yellow-400 mb-3">20% OFF</p>
+                  <div className="flex items-center justify-between bg-yellow-500/10 border border-yellow-500/25 rounded-lg px-4 py-2.5">
+                    <span className="font-mono font-black text-yellow-300 tracking-widest text-sm">MATUTOCRIPTO20</span>
+                    <svg className="w-4 h-4 text-yellow-500/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              {/* Botão mobile */}
+              <div className="mt-5 md:hidden">
+                <div className="flex items-center justify-center gap-2 w-full py-3 bg-yellow-500 hover:bg-yellow-400 text-black font-black rounded-xl transition-all text-sm">
+                  ACESSAR LOJA <ArrowRight size={16} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
       </section>
 
       {/* Comparativo Simples */}
@@ -221,7 +331,28 @@ const Hardwallet: React.FC = () => {
           ))}
         </div>
       </section>
-      <Footer />
+
+      {/* Footer */}
+      <footer className="py-12 px-6 md:px-12 bg-black border-t border-gray-900">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="flex items-center gap-4 flex-wrap justify-center">
+            <p className="text-gray-500 text-sm">&copy; 2026 Investidor Matuto. Todos os direitos reservados.</p>
+            <span className="hidden md:inline text-gray-800">|</span>
+            <p className="text-gray-400 font-bold text-sm uppercase tracking-widest">Quem vence? Quando você vence.</p>
+          </div>
+          <div className="flex items-center gap-6">
+            <a href="https://twitter.com/invest_matuto" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.514l-5.106-6.67-5.829 6.67H2.422l7.723-8.835L1.254 2.25h6.554l4.882 6.467 5.633-6.467zM17.534 20.766h1.832L6.455 3.812H4.527l13.007 16.954z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@investidormatuto" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors"><Youtube size={20} /></a>
+            <a href="https://www.instagram.com/investidormatuto/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors"><Instagram size={20} /></a>
+              {/* Binance Square */}
+              <a href="https://app.binance.com/uni-qr/cpro/investidormatuto" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-yellow-400 transition-colors" title="Binance Square">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L7.31 4.69 9.88 7.25 12 5.13l2.12 2.12 2.57-2.56L12 0zM4.69 7.31L0 12l4.69 4.69 2.56-2.57L5.13 12l2.12-2.12-2.56-2.57zM19.31 7.31l-2.56 2.57L18.87 12l-2.12 2.12 2.56 2.57L24 12l-4.69-4.69zM9.88 9.88L7.31 12.44 9.88 15l2.12-2.12L14.12 15l2.57-2.56L14.12 9.88 12 12 9.88 9.88zM7.31 16.75L9.88 19.31 12 17.19l2.12 2.12 2.57-2.56L12 12.31l-4.69 4.44zM12 18.87l-2.12 2.12-2.57-2.56L12 24l4.69-4.69-2.57-2.56L12 18.87z"/></svg>
+              </a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
