@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'wouter';
-import { ArrowRight, Youtube, Instagram, Users, Clock, Menu, X, Send, AlertCircle, CheckCircle2, TrendingDown, Zap } from 'lucide-react';
+import { ArrowRight, Users, Clock, AlertCircle, CheckCircle2, TrendingDown, Zap } from 'lucide-react';
+import { Header } from '@/components/Header';
+import { Footer } from '@/components/Footer';
+import { usePageMeta } from '@/hooks/usePageMeta';
 
 const TypewriterText: React.FC<{ text: string }> = ({ text }) => {
   const [displayedText, setDisplayedText] = useState('');
@@ -28,8 +31,11 @@ const TypewriterText: React.FC<{ text: string }> = ({ text }) => {
 };
 
 const Home: React.FC = () => {
+  usePageMeta(
+    "Início - Aprenda a Investir em Criptomoedas",
+    "Aprenda a investir em criptomoedas com Erivelton Germano, o Investidor Matuto. Tutoriais, exchanges, mentoria e comunidade."
+  );
   const [scrollY, setScrollY] = useState(0);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isPhotoVisible, setIsPhotoVisible] = useState(true);
   const photoRef = useRef<HTMLDivElement>(null);
   const lastScrollY = useRef(0);
@@ -50,24 +56,6 @@ const Home: React.FC = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const socialLinks = {
-    youtube: "https://www.youtube.com/@investidormatuto",
-    instagram: "https://www.instagram.com/investidormatuto/",
-    twitter: "https://twitter.com/invest_matuto",
-    tiktok: "https://www.tiktok.com/@investidormatuto",
-  };
-
-  const navLinks = [
-    { href: "/mentoria", label: "MENTORIA" },
-    { href: "/curso", label: "CURSO" },
-    { href: "/telegram", label: "TELEGRAM" },
-    { href: "/okx", label: "OKX" },
-    { href: "/exchanges", label: "EXCHANGES" },
-    { href: "/hardwallet", label: "HARDWALLET" },
-    { href: "/kast", label: "KAST" },
-    { href: "/imposto-de-renda", label: "IMPOSTO DE RENDA" },
-  ];
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white font-sans">
@@ -96,53 +84,7 @@ const Home: React.FC = () => {
         }
       `}</style>
       
-      {/* Header Padronizado com Menu Responsivo */}
-      <header className="sticky top-0 z-50 bg-[#0a0a0a]/95 backdrop-blur border-b border-gray-800">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 font-bold text-xl hover:opacity-80 transition-opacity">
-            INVESTIDOR MATUTO
-          </Link>
-          
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex gap-8">
-            {navLinks.map((link) => (
-              <Link 
-                key={link.href}
-                href={link.href} 
-                className="text-sm font-medium text-gray-400 hover:text-blue-400 transition-colors tracking-wider"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-
-          {/* Mobile Menu Button */}
-          <button 
-            className="lg:hidden p-2 text-gray-400 hover:text-white transition-colors"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
-        </div>
-
-        {/* Mobile Navigation Overlay */}
-        {isMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 w-full bg-[#0a0a0a] border-b border-gray-800 animate-in fade-in slide-in-from-top-4 duration-300">
-            <nav className="flex flex-col p-6 gap-4">
-              {navLinks.map((link) => (
-                <Link 
-                  key={link.href}
-                  href={link.href} 
-                  onClick={() => setIsMenuOpen(false)}
-                  className="text-lg font-medium text-gray-300 hover:text-blue-400 transition-colors py-2 border-b border-gray-900 last:border-0"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-          </div>
-        )}
-      </header>
+      <Header />
 
       {/* Hero Section */}
       <section className="relative py-24 md:py-32 px-6 md:px-12 bg-[#0a0a0a] overflow-hidden">
@@ -179,7 +121,7 @@ const Home: React.FC = () => {
                 }}
               >
                 <img
-                  src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663333280465/SyzUMomBqTgjclUA.png"
+                  src="/assets/erivelton-photo.png"
                   alt="Erivelton Germano - Investidor Matuto"
                   className="w-full h-auto object-cover shadow-2xl rounded-lg"
                   style={{
@@ -307,26 +249,7 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-12 px-6 md:px-12 bg-[#0a0a0a] border-t border-gray-900">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="text-gray-500 text-sm">
-            © 2026 Investidor Matuto. Todos os direitos reservados.
-          </div>
-          
-          <div className="flex gap-6">
-            <a href={socialLinks.youtube} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
-              <Youtube size={20} />
-            </a>
-            <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
-              <Instagram size={20} />
-            </a>
-            <a href={socialLinks.tiktok} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
-              <Send size={20} />
-            </a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

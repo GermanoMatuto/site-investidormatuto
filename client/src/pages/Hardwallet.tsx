@@ -1,24 +1,14 @@
-import React, { useState } from 'react';
-import { Link } from 'wouter';
-import { 
-  ArrowRight, Shield, Zap, Lock, Menu, X, Send, Youtube, Instagram, 
-  CheckCircle2, AlertCircle, Info, Smartphone, Bluetooth, 
-  Fingerprint, Eye, RefreshCcw, ShieldCheck, Cpu, TrendingUp
-} from 'lucide-react';
+import React from 'react';
+import { ArrowRight, Shield, Zap, Lock, CheckCircle2, AlertCircle, Info, Smartphone, Bluetooth, Fingerprint, Eye, RefreshCcw, ShieldCheck, Cpu, TrendingUp } from 'lucide-react';
+import { Header } from '@/components/Header';
+import { Footer } from '@/components/Footer';
+import { usePageMeta } from '@/hooks/usePageMeta';
 
 const Hardwallet: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const navLinks = [
-    { href: "/mentoria", label: "MENTORIA" },
-    { href: "/curso", label: "CURSO" },
-    { href: "/telegram", label: "TELEGRAM" },
-    { href: "/okx", label: "OKX" },
-    { href: "/exchanges", label: "EXCHANGES" },
-    { href: "/hardwallet", label: "HARDWALLET", active: true },
-    { href: "/kast", label: "KAST" },
-    { href: "/imposto-de-renda", label: "IMPOSTO DE RENDA" },
-  ];
+  usePageMeta(
+    "Hardware Wallet - Proteja suas Criptos com OneKey",
+    "Conheça as melhores hardware wallets para guardar suas criptomoedas com segurança máxima. Parceria OneKey."
+  );
 
   const faqs = [
     {
@@ -41,33 +31,7 @@ const Hardwallet: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white font-sans selection:bg-blue-500/30">
-      {/* Header */}
-      <header className="sticky top-0 z-50 bg-[#0a0a0a]/95 backdrop-blur border-b border-gray-800">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 font-bold text-xl hover:opacity-80 transition-opacity">
-            INVESTIDOR MATUTO
-          </Link>
-          <nav className="hidden lg:flex gap-8">
-            {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className={`text-sm font-medium transition-colors tracking-wider ${link.active ? 'text-blue-400' : 'text-gray-400 hover:text-blue-400'}`}>
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-          <button className="lg:hidden p-2 text-gray-400 hover:text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
-        </div>
-        {isMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 w-full bg-[#0a0a0a] border-b border-gray-800 p-6 flex flex-col gap-4 animate-in fade-in slide-in-from-top-4">
-            {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} onClick={() => setIsMenuOpen(false)} className={`text-lg font-medium py-2 border-b border-gray-900 last:border-0 ${link.active ? 'text-blue-400' : 'text-gray-300 hover:text-blue-400'}`}>
-                {link.label}
-              </Link>
-            ))}
-          </div>
-        )}
-      </header>
+      <Header />
 
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 px-6 md:px-12 overflow-hidden">
@@ -257,25 +221,7 @@ const Hardwallet: React.FC = () => {
           ))}
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="py-12 px-6 md:px-12 bg-black border-t border-gray-900">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="flex items-center gap-4 flex-wrap justify-center">
-            <p className="text-gray-500 text-sm">&copy; 2026 Investidor Matuto. Todos os direitos reservados.</p>
-            <span className="hidden md:inline text-gray-800">|</span>
-            <p className="text-gray-400 font-bold text-sm uppercase tracking-widest">Quem vence? Quando você vence.</p>
-          </div>
-          <div className="flex items-center gap-6">
-            <a href="https://twitter.com/invest_matuto" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.514l-5.106-6.67-5.829 6.67H2.422l7.723-8.835L1.254 2.25h6.554l4.882 6.467 5.633-6.467zM17.534 20.766h1.832L6.455 3.812H4.527l13.007 16.954z"/></svg>
-            </a>
-            <a href="https://t.me/+vva2e0bVkoFiNWFh" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors"><Send size={20} /></a>
-            <a href="https://www.youtube.com/@investidormatuto" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors"><Youtube size={20} /></a>
-            <a href="https://www.instagram.com/investidormatuto/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors"><Instagram size={20} /></a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

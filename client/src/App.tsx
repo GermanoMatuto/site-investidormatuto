@@ -1,57 +1,59 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import NotFound from "@/pages/NotFound";
+import { lazy, Suspense } from "react";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
-import Home from "./pages/Home";
-import OKX from "./pages/OKX";
-import Gate from "./pages/Gate";
-import BingX from "./pages/BingX";
-import Kast from "./pages/Kast";
-import Telegram from "./pages/Telegram";
-import DeclareCripto from "./pages/DeclareCripto";
-import Construction from "./pages/Construction";
-import Curso from "./pages/Curso";
-import Mentoria from "./pages/Mentoria";
-import Exchanges from "./pages/Exchanges";
-import Hardwallet from "./pages/Hardwallet";
 
+const Home = lazy(() => import("./pages/Home"));
+const OKX = lazy(() => import("./pages/OKX"));
+const Gate = lazy(() => import("./pages/Gate"));
+const BingX = lazy(() => import("./pages/BingX"));
+const Exchanges = lazy(() => import("./pages/Exchanges"));
+const Hardwallet = lazy(() => import("./pages/Hardwallet"));
+const Kast = lazy(() => import("./pages/Kast"));
+const Telegram = lazy(() => import("./pages/Telegram"));
+const DeclareCripto = lazy(() => import("./pages/DeclareCripto"));
+const Mentoria = lazy(() => import("./pages/Mentoria"));
+const Curso = lazy(() => import("./pages/Curso"));
+const Construction = lazy(() => import("./pages/Construction"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
-function Router() {
+function PageLoader() {
   return (
-    <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/okx"} component={OKX} />
-      <Route path={"/gate"} component={Gate} />
-      <Route path={"/bingx"} component={BingX} />
-      <Route path={"/exchanges"} component={Exchanges} />
-      <Route path={"/hardwallet"} component={Hardwallet} />
-      <Route path={"/kast"} component={Kast} />
-      <Route path={"/telegram"} component={Telegram} />
-      <Route path={"/imposto-de-renda"} component={DeclareCripto} />
-      <Route path={"/mentoria"} component={Mentoria} />
-      <Route path={"/curso"} component={Curso} />
-      <Route path={"/binance"} component={Construction} />
-      <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
-      <Route component={NotFound} />
-    </Switch>
+    <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
+      <div className="w-8 h-8 border-2 border-blue-500 border-t-transparent rounded-full animate-spin" />
+    </div>
   );
 }
 
-// NOTE: About Theme
-// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
-//   to keep consistent foreground/background color across components
-// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
+function Router() {
+  return (
+    <Suspense fallback={<PageLoader />}>
+      <Switch>
+        <Route path={"/"} component={Home} />
+        <Route path={"/okx"} component={OKX} />
+        <Route path={"/gate"} component={Gate} />
+        <Route path={"/bingx"} component={BingX} />
+        <Route path={"/exchanges"} component={Exchanges} />
+        <Route path={"/hardwallet"} component={Hardwallet} />
+        <Route path={"/kast"} component={Kast} />
+        <Route path={"/telegram"} component={Telegram} />
+        <Route path={"/imposto-de-renda"} component={DeclareCripto} />
+        <Route path={"/mentoria"} component={Mentoria} />
+        <Route path={"/curso"} component={Curso} />
+        <Route path={"/binance"} component={Construction} />
+        <Route path={"/404"} component={NotFound} />
+        <Route component={NotFound} />
+      </Switch>
+    </Suspense>
+  );
+}
 
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider
-        defaultTheme="dark"
-        // switchable
-      >
+      <ThemeProvider defaultTheme="dark">
         <TooltipProvider>
           <Toaster />
           <Router />

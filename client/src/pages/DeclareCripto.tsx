@@ -1,71 +1,20 @@
-import React, { useState } from 'react';
-import { Link } from 'wouter';
-import { Shield, Zap, FileText, AlertTriangle, CheckCircle, Calendar, ArrowRight, Menu, X, Send, Youtube, Instagram, Users } from 'lucide-react';
+import React from 'react';
+import { Shield, Zap, FileText, AlertTriangle, CheckCircle, Calendar, ArrowRight, Users } from 'lucide-react';
+import { Header } from '@/components/Header';
+import { Footer } from '@/components/Footer';
+import { usePageMeta } from '@/hooks/usePageMeta';
 
 const DeclareCripto: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const navLinks = [
-    { href: "/mentoria", label: "MENTORIA" },
-    { href: "/curso", label: "CURSO" },
-    { href: "/telegram", label: "TELEGRAM" },
-    { href: "/okx", label: "OKX" },
-    { href: "/exchanges", label: "EXCHANGES" },
-    { href: "/kast", label: "KAST" },
-    { href: "/imposto-de-renda", label: "IMPOSTO DE RENDA", active: true },
-  ];
+  usePageMeta(
+    "Imposto de Renda de Cripto - Declare Corretamente",
+    "Aprenda como declarar suas criptomoedas no Imposto de Renda corretamente e evite problemas com a Receita Federal."
+  );
 
   const partnerLink = "https://declarecripto.com.br/parceiro/InvestidorMatuto";
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white font-sans">
-      {/* Header Padronizado com Menu Responsivo */}
-      <header className="sticky top-0 z-50 bg-[#0a0a0a]/95 backdrop-blur border-b border-gray-800">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 font-bold text-xl hover:opacity-80 transition-opacity">
-            INVESTIDOR MATUTO
-          </Link>
-          
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex gap-8">
-            {navLinks.map((link) => (
-              <Link 
-                key={link.href}
-                href={link.href} 
-                className={`text-sm font-medium transition-colors tracking-wider ${link.active ? 'text-blue-400' : 'text-gray-400 hover:text-blue-400'}`}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-
-          {/* Mobile Menu Button */}
-          <button 
-            className="lg:hidden p-2 text-gray-400 hover:text-white transition-colors"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
-        </div>
-
-        {/* Mobile Navigation Overlay */}
-        {isMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 w-full bg-[#0a0a0a] border-b border-gray-800 animate-in fade-in slide-in-from-top-4 duration-300">
-            <nav className="flex flex-col p-6 gap-4">
-              {navLinks.map((link) => (
-                <Link 
-                  key={link.href}
-                  href={link.href} 
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`text-lg font-medium transition-colors py-2 border-b border-gray-900 last:border-0 ${link.active ? 'text-blue-400' : 'text-gray-300 hover:text-blue-400'}`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-          </div>
-        )}
-      </header>
+      <Header />
 
       {/* Hero Section */}
       <section className="py-20 md:py-32 px-6 md:px-12 bg-gradient-to-b from-[#0a0a0a] via-[#1a1a1a] to-[#0a0a0a]">
@@ -227,28 +176,7 @@ const DeclareCripto: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="py-12 px-6 md:px-12 border-t border-gray-900 bg-[#0a0a0a]">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="text-center md:text-left">
-            <h3 className="font-bold text-xl mb-2">INVESTIDOR MATUTO</h3>
-            <p className="text-gray-500 text-sm">© 2026 Todos os direitos reservados.</p>
-          </div>
-          
-          <div className="flex gap-6">
-            <a href="https://youtube.com/@investidormatuto" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-              <Youtube size={24} />
-            </a>
-            <a href="https://instagram.com/investidormatuto" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-              <Instagram size={24} />
-            </a>
-            <a href="https://t.me/investidormatuto" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-              <Send size={24} />
-            </a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
