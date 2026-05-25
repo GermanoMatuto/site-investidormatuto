@@ -152,16 +152,29 @@ const BingX: React.FC = () => {
           <p className="text-gray-400 mb-10">
             Vídeo rápido mostrando exatamente onde encontrar seu UID — necessário para participar da comunidade e validar seu cadastro.
           </p>
-          <div className="relative mx-auto rounded-2xl overflow-hidden border border-gray-800 shadow-2xl"
-               style={{ aspectRatio: '9/16', maxWidth: '360px' }}>
-            <iframe
-              src="https://www.youtube.com/embed/82gfKME8fZI"
-              title="Como localizar seu UID na BingX"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="absolute inset-0 w-full h-full"
+          <a
+            href="https://youtube.com/shorts/82gfKME8fZI"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative mx-auto block rounded-2xl overflow-hidden border border-gray-800 shadow-2xl group"
+            style={{ aspectRatio: '9/16', maxWidth: '360px' }}
+          >
+            <img
+              src="https://i.ytimg.com/vi/82gfKME8fZI/hqdefault.jpg"
+              alt="Como localizar seu UID na BingX"
+              className="w-full h-full object-cover"
             />
-          </div>
+            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+              <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                <svg className="w-7 h-7 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </div>
+            </div>
+            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+              <p className="text-white text-sm font-semibold">Assistir no YouTube</p>
+            </div>
+          </a>
         </div>
       </section>
 
