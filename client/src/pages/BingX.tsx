@@ -144,6 +144,27 @@ const BingX: React.FC = () => {
         </div>
       </section>
 
+      {/* Tutorial UID */}
+      <section className="py-20 md:py-28 px-6 md:px-12 bg-[#0d0d0d] border-t border-gray-900">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-blue-500 uppercase tracking-[0.3em] text-xs font-semibold mb-4">Tutorial</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Como Localizar seu UID na BingX</h2>
+          <p className="text-gray-400 mb-10">
+            Vídeo rápido mostrando exatamente onde encontrar seu UID — necessário para participar da comunidade e validar seu cadastro.
+          </p>
+          <div className="relative mx-auto rounded-2xl overflow-hidden border border-gray-800 shadow-2xl"
+               style={{ aspectRatio: '9/16', maxWidth: '360px' }}>
+            <iframe
+              src="https://www.youtube.com/embed/82gfKME8fZI"
+              title="Como localizar seu UID na BingX"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="py-12 px-6 md:px-12 bg-[#0a0a0a] border-t border-gray-900">
         <div className="max-w-6xl mx-auto">
