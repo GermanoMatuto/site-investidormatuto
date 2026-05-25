@@ -197,7 +197,7 @@ const Telegram: React.FC = () => {
 
                 {/* Área clicável - tutorial UID */}
                 <a
-                  href="https://bingx.com/pt-br/partner/investidormatuto"
+                  href="https://youtube.com/shorts/82gfKME8fZI"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 px-5 py-3 bg-gray-800 hover:bg-gray-700 border border-gray-700 hover:border-blue-500/50 rounded-lg transition-all duration-200 group"
@@ -207,7 +207,7 @@ const Telegram: React.FC = () => {
                   </div>
                   <div className="text-left">
                     <span className="text-sm font-semibold text-white block">Não sabe encontrar seu UID?</span>
-                    <span className="text-xs text-blue-400">BingX — vídeo tutorial em breve</span>
+                    <span className="text-xs text-blue-400">Assistir tutorial no YouTube</span>
                   </div>
                   <ExternalLink size={14} className="text-gray-500 group-hover:text-blue-400 transition-colors ml-auto" />
                 </a>
